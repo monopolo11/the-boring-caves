@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include "mapa.h"
+#include "assets/mapa.h"
 
 int main() {
     printmap();

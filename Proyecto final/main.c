@@ -5,11 +5,14 @@
 //  Created by Bernardo Ruiz & Rodrigo Alvarez on 25/3/19.
 //  Copyright © 2019 Bernardo Ruiz & Rodrigo Alvarez. All rights reserved.
 //
-
+#include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
+
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
+
+
 int main() {
     printmap();
     char ch = 0;

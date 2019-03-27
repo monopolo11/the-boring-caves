@@ -33,12 +33,12 @@ int actcol = 0;
 void printmap(){
 int col, row,act;
 int cont = 0;
-while (cont!=50){
-  printf("\n");
-  cont++;
-}
-cont=0;
-
+//while (cont!=10){
+//  printf("\n");
+//  cont++;
+//}
+//cont=0;
+system("cls");
 for (row=0; row!=10; row++) {
     printf("\n");
     for (col=0; col!=10; col++) {

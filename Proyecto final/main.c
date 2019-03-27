@@ -5,19 +5,17 @@
 //  Created by Bernardo Ruiz & Rodrigo Alvarez on 25/3/19.
 //  Copyright © 2019 Bernardo Ruiz & Rodrigo Alvarez. All rights reserved.
 //
+int juegofin = 0;
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
-
-
 int main() {
     printmap();
     char ch = 0;
     int cont = 0;
-    while (cont!=20) {
+    while (juegofin==0) {
       ch = getch();
       switch (ch) {
         case 119:
@@ -37,8 +35,25 @@ int main() {
             cont++;
             break;
     }
-
+    if (llave==1) {
+      printf("El jugador tiene la llave");
+      printf("%d\n",juegofin);
     }
+    if (cont>100) {
+      juegofin=2;
+    }
+    }
+    switch (juegofin) {
+      case 1:
+        system("cls");
+        printf("Haz terminado el nivel");
+        break;
+        case 2:
+          system("cls");
+          printf("Perdiste HDP");
+          break;
+    }
+
     //arriba 119
     //abajo 115
     //izq 97

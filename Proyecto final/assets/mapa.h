@@ -51,7 +51,7 @@ for (row=0; row!=10; row++) {
                 printf("* ");
                 break;
             case 2:
-                printf("o ");
+                printf("O ");
                 break;
         }
     }

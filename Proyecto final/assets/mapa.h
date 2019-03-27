@@ -8,18 +8,17 @@
 
 #ifndef mapa_h
 #define mapa_h
-#define rojo    "\x1b[31m"
-#define verde   "\x1b[32m"
-#define amarillo  "\x1b[33m"
-#define azul    "\x1b[34m"
-#define magenta "\x1b[35m"
-#define cyan     "\x1b[36m"
-#define reset   "\x1b[0m"
-void printmap(){
-int col, row,act;
+//#define rojo    "\x1b[31m"
+//#define verde   "\x1b[32m"
+//#define amarillo  "\x1b[33m"
+//#define azul    "\x1b[34m"
+//#define magenta "\x1b[35m"
+//#define cyan     "\x1b[36m"
+//#define reset   "\x1b[0m"
+
 int matriz[10][10] = {
     {1,1,1,1,1,1,1,1,1,1},
-    {0,0,0,0,2,0,0,0,0,1},
+    {2,0,0,0,0,0,0,0,0,1},
     {1,1,1,1,1,1,1,1,0,1},
     {1,0,0,0,0,0,0,0,0,1},
     {1,0,1,1,1,1,1,1,1,1},
@@ -29,6 +28,17 @@ int matriz[10][10] = {
     {1,1,1,1,1,1,1,0,1,1},
     {1,1,1,1,1,1,1,0,1,1}
 };
+int actrow = 1;
+int actcol = 0;
+void printmap(){
+int col, row,act;
+int cont = 0;
+while (cont!=50){
+  printf("\n");
+  cont++;
+}
+cont=0;
+
 for (row=0; row!=10; row++) {
     printf("\n");
     for (col=0; col!=10; col++) {
@@ -38,14 +48,14 @@ for (row=0; row!=10; row++) {
                 printf("  ");
                 break;
             case 1:
-                printf(rojo"* "reset);
+                printf("* ");
                 break;
             case 2:
-                printf(azul"\u25A0 "reset);
+                printf("o ");
                 break;
         }
     }
 }
-printf("\n");
+
 }
 #endif /* mapa_h */

@@ -7,8 +7,37 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "assets/mapa.h"
-
+#include "assets/movimiento.h"
 int main() {
     printmap();
+    char ch = 0;
+    int cont = 0;
+    while (cont!=20) {
+      ch = getch();
+      switch (ch) {
+        case 119:
+          moverArr();
+          cont++;
+          break;
+        case 115:
+          moverAba();
+          cont++;
+          break;
+        case 97:
+          moverIzq();
+          cont++;
+          break;
+        case 100:
+            moverDer();
+            cont++;
+            break;
+    }
+
+    }
+    //arriba 119
+    //abajo 115
+    //izq 97
+    //der 100
 }

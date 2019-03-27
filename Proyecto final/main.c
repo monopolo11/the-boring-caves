@@ -46,7 +46,7 @@ int main() {
     switch (juegofin) {
       case 1:
         system("cls");
-        printf("Haz terminado el nivel");
+        printf("Has terminado el nivel");
         break;
         case 2:
           system("cls");

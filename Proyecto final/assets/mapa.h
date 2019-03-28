@@ -8,6 +8,7 @@
 
 #ifndef mapa_h
 #define mapa_h
+
 //#define rojo    "\x1b[31m"
 //#define verde   "\x1b[32m"
 //#define amarillo  "\x1b[33m"
@@ -15,6 +16,7 @@
 //#define magenta "\x1b[35m"
 //#define cyan     "\x1b[36m"
 //#define reset   "\x1b[0m"
+HANDLE  hConsole;
 int llave = 0;
 int nivel = 1;
 int mapa1[12][12] ={
@@ -152,49 +154,73 @@ for (row=0; row!=12; row++) {
                   printf("  ");
                   break;
               case 1:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 2);
                   printf("* ");
                   break;
               case 2:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 7);
                   printf("O ");
                   break;
               case 5:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 6);
                 printf("y ");
                 break;
               case 9:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 6);
                   printf("H ");
                   break;
               case 10:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 3);
                   printf("- ");
                   break;
               case 11:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 3);
                   printf("| ");
                   break;
           }
     }else{printf("  ");}
   }else{
     switch (act) {
-        case 0:
-            printf("  ");
-            break;
-        case 1:
-            printf("* ");
-            break;
-        case 2:
-            printf("O ");
-            break;
-        case 5:
-          printf("y ");
+      case 0:
+          printf("  ");
           break;
-        case 9:
-            printf("H ");
-            break;
-        case 10:
-            printf("- ");
-            break;
-        case 11:
-            printf("| ");
-            break;
-    }
+      case 1:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 2);
+          printf("* ");
+          break;
+      case 2:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 7);
+          printf("O ");
+          break;
+      case 5:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 6);
+        printf("y ");
+        break;
+      case 9:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 6);
+          printf("H ");
+          break;
+      case 10:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 3);
+          printf("- ");
+          break;
+      case 11:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 3);
+          printf("| ");
+          break;
+  }
 }
 }
 }

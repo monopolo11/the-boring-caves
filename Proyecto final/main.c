@@ -9,8 +9,10 @@ int juegofin = 0;
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
+
 int main() {
     cambiomapa(1);
     printmap();

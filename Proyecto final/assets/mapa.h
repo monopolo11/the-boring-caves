@@ -19,6 +19,8 @@
 HANDLE  hConsole;
 int llave = 0;
 int nivel = 1;
+int cueva = 0;
+int espada = 0;
 int mapa1[12][12] ={
   {10,10,10,10,10,10,10,10,10,10,10,0},
   {11,1,1,1,1,1,1,1,1,1,11},
@@ -26,11 +28,26 @@ int mapa1[12][12] ={
   {11,1,1,1,1,0,1,1,1,1,11},
   {11,1,0,0,0,0,0,0,5,1,11},
   {11,1,0,1,1,1,1,1,1,1,11},
-  {11,1,0,0,0,0,0,0,0,1,11},
-  {11,1,0,1,1,1,1,0,1,1,11},
+  {11,1,0,0,0,0,0,0,21,1,11},
+  {11,1,6,1,1,1,1,0,1,1,11},
   {11,1,0,0,0,1,1,1,1,1,11},
   {11,1,1,1,0,0,0,0,0,1,11},
   {11,1,1,1,1,1,1,9,1,1,11},
+  {10,10,10,10,10,10,10,10,10,10,10,0}
+};
+
+int mapa1_1[12][12] ={
+  {10,10,10,10,10,10,10,10,10,10,10,0},
+  {11,3,3,3,3,3,3,3,3,3,11},
+  {11,2,0,0,0,0,3,3,3,3,11},
+  {11,3,3,3,3,0,3,3,3,3,11},
+  {11,3,0,0,0,0,0,0,5,3,11},
+  {11,3,0,3,3,3,3,3,3,3,11},
+  {11,3,0,0,0,0,0,22,0,3,11},
+  {11,3,0,3,3,3,3,0,3,3,11},
+  {11,3,0,0,0,3,3,3,3,3,11},
+  {11,3,3,3,0,0,7,0,0,3,11},
+  {11,3,3,3,3,3,3,9,3,3,11},
   {10,10,10,10,10,10,10,10,10,10,10,0}
 };
 
@@ -95,8 +112,9 @@ void resetmatrizvis(){
     }
 }
 
-void cambiomapa(int nivel){
-  llave = 0;
+void cambiomapa(){
+  if(cueva!=1){
+    llave = 0;
   switch (nivel) {
     case 1:
     for (row=0; row!=12; row++) {
@@ -122,7 +140,98 @@ void cambiomapa(int nivel){
         juegofin=1;
         break;
   }
+}else{
+  switch (nivel) {
+    case 1:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          matriz[row][col]=mapa1_1[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+    case 2:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          matriz[row][col]=mapa1_1[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+      case 3:
+        juegofin=1;
+        break;
+  }
 }
+}
+
+void printmapchar(int valormat){
+  switch (valormat) {
+      case 0:
+          printf("  ");
+          break;
+      case 1:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 2);
+          printf("* ");
+          break;
+      case 2:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 7);
+          printf("O ");
+          break;
+      case 3:
+          hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+           SetConsoleTextAttribute(hConsole, 8);
+              printf("* ");
+              break;
+      case 5:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 6);
+        printf("y ");
+        break;
+      case 6:
+        hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+         SetConsoleTextAttribute(hConsole, 4);
+          printf("F ");
+          break;
+      case 7:
+            hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+             SetConsoleTextAttribute(hConsole, 4);
+              printf("+ ");
+              break;
+      case 9:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 6);
+          printf("H ");
+          break;
+      case 10:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 3);
+          printf("- ");
+          break;
+      case 11:
+      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+       SetConsoleTextAttribute(hConsole, 3);
+          printf("| ");
+          break;
+          case 21:
+              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+               SetConsoleTextAttribute(hConsole, 14);
+                  printf("E ");
+                  break;
+      case 22:
+          hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+           SetConsoleTextAttribute(hConsole, 14);
+              printf("E ");
+              break;
+}
+}
+
 void printmap(){
 int act;
 int cont = 0;
@@ -149,81 +258,14 @@ for (row=0; row!=12; row++) {
         act=matriz[row][col];
         if (matrizvisset==1){
         if(matrizvis[row][col]==1){
-          switch (act) {
-              case 0:
-                  printf("  ");
-                  break;
-              case 1:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 2);
-                  printf("* ");
-                  break;
-              case 2:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 7);
-                  printf("O ");
-                  break;
-              case 5:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 6);
-                printf("y ");
-                break;
-              case 9:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 6);
-                  printf("H ");
-                  break;
-              case 10:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 3);
-                  printf("- ");
-                  break;
-              case 11:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 3);
-                  printf("| ");
-                  break;
-          }
+          printmapchar(matriz[row][col]);
     }else{printf("  ");}
   }else{
-    switch (act) {
-      case 0:
-          printf("  ");
-          break;
-      case 1:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 2);
-          printf("* ");
-          break;
-      case 2:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 7);
-          printf("O ");
-          break;
-      case 5:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 6);
-        printf("y ");
-        break;
-      case 9:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 6);
-          printf("H ");
-          break;
-      case 10:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 3);
-          printf("- ");
-          break;
-      case 11:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 3);
-          printf("| ");
-          break;
+    printmapchar(matriz[row][col]);
   }
 }
 }
 }
 
-}
+
 #endif /* mapa_h */

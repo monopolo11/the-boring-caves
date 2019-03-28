@@ -6,6 +6,7 @@
 //  Copyright © 2019 Bernardo Ruiz & Rodrigo Alvarez. All rights reserved.
 //
 int juegofin = 0;
+int vidas = 3;
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,8 +15,11 @@ int juegofin = 0;
 #include "assets/movimiento.h"
 
 int main() {
+  deltarow = actrow;
+  deltacol = actcol;
     cambiomapa(1);
     printmap();
+    printf("Vidas: %d",vidas);
     char ch = 0;
     int cont = 0;
     while (juegofin==0) {
@@ -37,11 +41,18 @@ int main() {
             moverDer();
             cont++;
             break;
+        case 113:
+            juegofin=3;
+            break;
     }
+    printf("Vidas: %d ",vidas);
     if (llave==1) {
       printf("El jugador tiene la llave");
     }
-    if (cont>100) {
+    if (espada==1) {
+      printf("El jugador tiene la espada");
+    }
+    if (vidas==0) {
       juegofin=2;
     }
     }
@@ -50,10 +61,14 @@ int main() {
         system("cls");
         printf("Has terminado el nivel");
         break;
-        case 2:
-          system("cls");
-          printf("Perdiste HDP");
-          break;
+      case 2:
+        system("cls");
+        printf("Perdiste HDP");
+        break;
+      case 3:
+        system("cls");
+        printf("El usuario cerro el programa");
+        break;
     }
 
     //arriba 119

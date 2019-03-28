@@ -12,6 +12,7 @@ int juegofin = 0;
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
 int main() {
+    cambiomapa(1);
     printmap();
     char ch = 0;
     int cont = 0;
@@ -37,7 +38,6 @@ int main() {
     }
     if (llave==1) {
       printf("El jugador tiene la llave");
-      printf("%d\n",juegofin);
     }
     if (cont>100) {
       juegofin=2;

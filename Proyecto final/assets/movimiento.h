@@ -1,6 +1,5 @@
 #ifndef movimiento_h
 #define movimiento_h
-int llave = 0;
 
 void makevis(){
   matrizvis[actrow-1][actcol-1]=1;
@@ -35,12 +34,22 @@ void moverArr(){
       printmap();
       break;
     case 5:
-    matriz[actrow][actcol]=0;
-    matriz[actrow-1][actcol]=2;
-    makevis();
-    actrow=actrow-1;
-    llave = 1;
-    printmap();
+      matriz[actrow][actcol]=0;
+      matriz[actrow-1][actcol]=2;
+      makevis();
+      actrow=actrow-1;
+      llave = 1;
+      printmap();
+      break;
+    case 9:
+          if (llave==1) {
+            cambiomapa(nivel+1);
+            nivel=nivel+1;
+            printmap();
+            break;
+          }else{printf("Te falta la llave");break;}
+          printmap();
+          break;
     default:
       printmap();
       printf("Movimiento invalido\n\a");
@@ -68,7 +77,10 @@ void moverAba(){
       break;
     case 9:
         if (llave==1) {
-          juegofin=1;
+          cambiomapa(nivel+1);
+          nivel=nivel+1;
+          printmap();cambiomapa(2);
+          printmap();
           break;
         }else{printf("Te falta la llave");break;}
         printmap();
@@ -100,7 +112,9 @@ void moverDer(){
         break;
       case 9:
           if (llave==1) {
-            juegofin=1;
+            cambiomapa(nivel+1);
+            nivel=nivel+1;
+            printmap();
             break;
           }else{printf("Te falta la llave");break;}
           printmap();
@@ -132,7 +146,9 @@ void moverIzq(){
         break;
       case 9:
           if (llave==1) {
-            juegofin=1;
+            cambiomapa(nivel+1);
+            nivel=nivel+1;
+            printmap();
             break;
           }else{printf("Te falta la llave");break;}
           printmap();

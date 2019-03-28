@@ -15,8 +15,9 @@
 //#define magenta "\x1b[35m"
 //#define cyan     "\x1b[36m"
 //#define reset   "\x1b[0m"
-
-int matriz[12][12] = {
+int llave = 0;
+int nivel = 1;
+int mapa1[12][12] ={
   {10,10,10,10,10,10,10,10,10,10,10,0},
   {11,1,1,1,1,1,1,1,1,1,11},
   {11,2,0,0,0,0,1,1,1,1,11},
@@ -29,6 +30,38 @@ int matriz[12][12] = {
   {11,1,1,1,0,0,0,0,0,1,11},
   {11,1,1,1,1,1,1,9,1,1,11},
   {10,10,10,10,10,10,10,10,10,10,10,0}
+};
+
+int mapa2[12][12] ={
+  {10,10,10,10,10,10,10,10,10,10,10,0},
+  {11,1,1,1,1,1,1,1,1,1,11},
+  {11,2,0,1,1,1,1,1,5,1,11},
+  {11,0,0,1,1,1,1,1,0,1,11},
+  {11,0,0,0,0,0,0,0,0,1,11},
+  {11,1,0,1,1,1,1,1,1,1,11},
+  {11,1,0,0,0,0,0,0,0,1,11},
+  {11,1,0,1,1,1,1,0,1,1,11},
+  {11,1,0,0,0,1,0,0,0,9,11},
+  {11,1,1,1,0,0,0,1,1,1,11},
+  {11,1,1,1,1,1,1,1,1,1,11},
+  {10,10,10,10,10,10,10,10,10,10,10,0}
+};
+
+int matriz[12][12];
+
+int matrizvisres[12][12] = {
+  {1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,0,0,0,0,0,0,0,1},
+  {1,1,1,0,0,0,0,0,0,0,1},
+  {1,1,1,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,5,0,1},
+  {1,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,1},
+  {1,0,0,0,0,0,0,0,0,0,1},
+  {1,1,1,1,1,1,1,1,1,1,1}
 };
 
 int matrizvis[12][12] = {
@@ -46,12 +79,50 @@ int matrizvis[12][12] = {
   {1,1,1,1,1,1,1,1,1,1,1}
 };
 //Habilita o desahabilita que se oculte el mapa
-int matrizvisset = 0;
+int matrizvisset = 1;
 
+int col,row;
 int actrow = 2;
 int actcol = 1;
+
+void resetmatrizvis(){
+  for (row=0; row!=12; row++) {
+      for (col=0; col!=12; col++) {
+        matrizvis[row][col]=matrizvisres[row][col];
+      }
+    }
+}
+
+void cambiomapa(int nivel){
+  llave = 0;
+  switch (nivel) {
+    case 1:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          matriz[row][col]=mapa1[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+    case 2:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          matriz[row][col]=mapa2[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+      case 3:
+        juegofin=1;
+        break;
+  }
+}
 void printmap(){
-int col, row,act;
+int act;
 int cont = 0;
 //while (cont!=10){
 //  printf("\n");
@@ -90,7 +161,7 @@ for (row=0; row!=12; row++) {
                 printf("y ");
                 break;
               case 9:
-                  printf("- ");
+                  printf("H ");
                   break;
               case 10:
                   printf("- ");

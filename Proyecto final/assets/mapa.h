@@ -32,7 +32,7 @@ int matriz[12][12] = {
 };
 
 int matrizvis[12][12] = {
-  {1,1,1,1,1,1,1,1,1,1,1,1},
+  {1,1,1,1,1,1,1,1,1,1,1},
   {1,1,1,0,0,0,0,0,0,0,1},
   {1,1,1,0,0,0,0,0,0,0,1},
   {1,1,1,0,0,0,0,0,0,0,1},
@@ -43,8 +43,10 @@ int matrizvis[12][12] = {
   {1,0,0,0,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,1},
   {1,0,0,0,0,0,0,0,0,0,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1}
+  {1,1,1,1,1,1,1,1,1,1,1}
 };
+//Habilita o desahabilita que se oculte el mapa
+int matrizvisset = 0;
 
 int actrow = 2;
 int actcol = 1;
@@ -72,6 +74,7 @@ for (row=0; row!=12; row++) {
     printf("\n");
     for (col=0; col!=12; col++) {
         act=matriz[row][col];
+        if (matrizvisset==1){
         if(matrizvis[row][col]==1){
           switch (act) {
               case 0:
@@ -97,7 +100,32 @@ for (row=0; row!=12; row++) {
                   break;
           }
     }else{printf("  ");}
-  }
+  }else{
+    switch (act) {
+        case 0:
+            printf("  ");
+            break;
+        case 1:
+            printf("* ");
+            break;
+        case 2:
+            printf("O ");
+            break;
+        case 5:
+          printf("y ");
+          break;
+        case 9:
+            printf("H ");
+            break;
+        case 10:
+            printf("- ");
+            break;
+        case 11:
+            printf("| ");
+            break;
+    }
+}
+}
 }
 
 }

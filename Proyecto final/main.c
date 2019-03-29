@@ -70,7 +70,11 @@ int main() {
         printf("El usuario cerro el programa");
         break;
     }
+<<<<<<< HEAD
 asdasdasd
+=======
+aaaaaaa
+>>>>>>> 46352d1db2fb4a9693dece497bacaf0c7c56bb54
     //arriba 119
     //abajo 115
     //izq 97

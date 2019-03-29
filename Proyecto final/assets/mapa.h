@@ -31,20 +31,6 @@ int matriz[12][12] = {
   {10,10,10,10,10,10,10,10,10,10,10,0}
 };
 
-int matrizvis[12][12] = {
-  {1,1,1,1,1,1,1,1,1,1,1,1},
-  {1,1,1,0,0,0,0,0,0,0,1},
-  {1,1,1,0,0,0,0,0,0,0,1},
-  {1,1,1,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,5,0,1},
-  {1,0,0,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,0,0,1},
-  {1,0,0,0,0,0,0,0,0,0,1},
-  {1,1,1,1,1,1,1,1,1,1,1,1}
-};
 
 int actrow = 2;
 int actcol = 1;
@@ -56,48 +42,35 @@ int cont = 0;
 //  cont++;
 //}
 //cont=0;
-/*
-item - Valor en matriz - representacion grafica
-Camino -    0             -
-Muros -     1             - *
-Jugador -   2             - 0
-Llave -     5             - y
-Puerta -    9             - y
-Borde Horizontal - 10     - -
-Borde Vertical - 10     - |
-
-*/
 system("cls");
 for (row=0; row!=12; row++) {
     printf("\n");
     for (col=0; col!=12; col++) {
         act=matriz[row][col];
-        if(matrizvis[row][col]==1){
-          switch (act) {
-              case 0:
-                  printf("  ");
-                  break;
-              case 1:
-                  printf("* ");
-                  break;
-              case 2:
-                  printf("O ");
-                  break;
-              case 5:
-                printf("y ");
+        switch (act) {
+            case 0:
+                printf("  ");
                 break;
-              case 9:
-                  printf("- ");
-                  break;
-              case 10:
-                  printf("- ");
-                  break;
-              case 11:
-                  printf("| ");
-                  break;
-          }
-    }else{printf("  ");}
-  }
+            case 1:
+                printf("* ");
+                break;
+            case 2:
+                printf("O ");
+                break;
+            case 5:
+              printf("y ");
+              break;
+            case 9:
+                printf("- ");
+                break;
+            case 10:
+                printf("- ");
+                break;
+            case 11:
+                printf("| ");
+                break;
+        }
+    }
 }
 
 }

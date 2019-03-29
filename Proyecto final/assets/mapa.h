@@ -235,17 +235,21 @@ Borde Horizontal - 10     - -
 Borde Vertical - 10     - |
 
 */
-switch (vidas) {
-  case 3:
-    jugador='O';
-    break;
-  case 2:
-    jugador='o';
-    break;
-  case 1:
-    jugador='.';
-    break;
-  }
+
+  switch (vidas) {
+    case 3:
+      jugador='O';
+      break;
+    case 2:
+      jugador='o';
+      break;
+    case 1:
+      jugador='.';
+      break;
+    case 5:
+      jugador='K';
+      break;
+    }
 system("cls");
 for (row=0; row!=32; row++) {
     printf("\n");
@@ -259,6 +263,26 @@ for (row=0; row!=32; row++) {
     printmapchar(matriz[row][col]);
   }
 }
+}
+SetConsoleTextAttribute(hConsole, 7);
+printf("\nNivel: %d \n",nivel);
+if(cueva==1){
+  SetConsoleTextAttribute(hConsole, 7);
+  printf("Cueva: Si \n");}else{SetConsoleTextAttribute(hConsole, 7);
+  printf("Cueva: No \n");}
+  SetConsoleTextAttribute(hConsole, 10);
+SetConsoleTextAttribute(hConsole, 10);
+printf("Vidas: %d\n",vidas);
+if (llave==1) {
+  SetConsoleTextAttribute(hConsole, 6);
+  printf("El jugador tiene la llave\n");
+}
+if (espada==1) {
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("El jugador tiene la espada\n");
+}
+if (vidas==0) {
+  juegofin=2;
 }
 }
 

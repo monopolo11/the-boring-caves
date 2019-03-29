@@ -17,13 +17,12 @@ char jugador = 'O';
 #include "assets/movimiento.h"
 
 int main() {
+  system("MODE 80,40");
   deltarow = actrow;
   deltacol = actcol;
   cambiomapa(1);
   init = 0;
     printmap();
-    SetConsoleTextAttribute(hConsole, 10);
-    printf("\nVidas: %d\n",vidas);
     char ch = 0;
     int cont = 0;
     while (juegofin==0) {
@@ -52,19 +51,6 @@ int main() {
           printf("Esa tecla no hace ni madres\n");
           break;
     }
-    SetConsoleTextAttribute(hConsole, 10);
-    printf("\nVidas: %d \n",vidas);
-    if (llave==1) {
-      SetConsoleTextAttribute(hConsole, 6);
-      printf("El jugador tiene la llave\n");
-    }
-    if (espada==1) {
-      SetConsoleTextAttribute(hConsole, 4);
-      printf("El jugador tiene la espada\n");
-    }
-    if (vidas==0) {
-      juegofin=2;
-    }
     }
     switch (juegofin) {
       case 1:
@@ -74,6 +60,7 @@ int main() {
       case 2:
         system("cls");
         printf("Perdistes HDP");
+        printf("\a");
         break;
       case 3:
         system("cls");

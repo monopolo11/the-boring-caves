@@ -72,7 +72,7 @@ void movecheck(int dir){
         vidas--;
         printmap();
         SetConsoleTextAttribute(hConsole, 4);
-        printf("\nNecesitas una espada.");
+        printf("Necesitas una espada.\n");
         break;
       }
         printmap();
@@ -96,14 +96,14 @@ void movecheck(int dir){
           }if(llave==0){
             matriz[actrow][actcol]=2;
             printmap();
-            printf("\nTe falta la llave. ");
+            printf("Te falta la llave.\n");
             break;
           }
       case 12:
               vidas--;
               printmap();
               SetConsoleTextAttribute(hConsole, 4);
-              printf("\nUn Dragon!! Corre Perra! Corre!.");
+              printf("Un Dragon!! Corre Perra! Corre!.\n");
               break;
     case 21:
     matriz[actrow][actcol]=0;
@@ -128,7 +128,7 @@ void movecheck(int dir){
                 break;
     default:
       printmap();
-      printf("\nMovimiento invalido.");
+      printf("Movimiento invalido.\n");
       break;
   }
 }

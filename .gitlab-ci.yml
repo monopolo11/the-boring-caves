@@ -11,10 +11,10 @@ build:
   # before_script: 
   #   - apt update && apt -y install make autoconf 
   script: 
-    - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -o juego.exe
+    - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -o /var/www/html/juego/juego.exe
   artifacts:
     paths:
-      - juego.exe
+      - /var/www/html/juego/juego.exe
   # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
   # cache:
   #   paths:

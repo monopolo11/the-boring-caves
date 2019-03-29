@@ -22,7 +22,8 @@ int llavetemp=0;
 int nivel = 1;
 int cueva = 0;
 int espada = 0;
-
+int escalera1 = 2;
+int escalera2 = 1;
 //Habilita o desahabilita que se oculte el mapa
 int matrizvisset = 0;
 int init = 1;
@@ -39,29 +40,30 @@ void resetmatrizvis(){
 }
 
 void mapasave(){
-  mapa1[2][1]=2;
-  mapa1_1[2][1]=2;
-  mapa2[2][1]=2;
+
+
   if(cueva!=1){
   switch (nivel) {
     case 1:
+    mapa1[actrow][actcol]=2;
+    escalera1=actrow;
+    escalera2=actcol;
     for (row=0; row!=12; row++) {
         for (col=0; col!=12; col++) {
           mapa1[row][col]=matriz[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
         resetmatrizvis();
         break;
     case 2:
+    mapa2[actrow][actcol]=2;
     for (row=0; row!=12; row++) {
         for (col=0; col!=12; col++) {
           mapa2[row][col]=matriz[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
+        //actrow = 2;
+        //actcol = 1;
         resetmatrizvis();
         break;
       case 3:
@@ -71,6 +73,7 @@ void mapasave(){
 }else{
   switch (nivel) {
     case 1:
+    mapa1_1[actrow][actcol]=2;
     for (row=0; row!=12; row++) {
         for (col=0; col!=12; col++) {
           mapa1_1[row][col]=matriz[row][col];
@@ -86,8 +89,8 @@ void mapasave(){
           mapa1_1[row][col]=matriz[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
+        //actrow = 2;
+        //actcol = 1;
         resetmatrizvis();
         break;
       case 3:
@@ -108,8 +111,8 @@ void cambiomapa(){
           matriz[row][col]=mapa1[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
+      actrow = escalera1;
+      actcol = escalera2;
         resetmatrizvis();
         break;
     case 2:
@@ -134,8 +137,8 @@ void cambiomapa(){
           matriz[row][col]=mapa1_1[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
+       actrow = 2;
+       actcol = 1;
         resetmatrizvis();
         break;
     case 2:

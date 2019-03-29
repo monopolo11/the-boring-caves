@@ -12,6 +12,7 @@ char jugador = 'O';
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include "assets/mapas.h"
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
 

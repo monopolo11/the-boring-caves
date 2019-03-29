@@ -100,11 +100,20 @@ void movecheck(int dir){
             break;
           }
       case 12:
+      if (espada==1&&vidas==8) {
+        matriz[deltarow][deltacol]=0;
+        vidas++;
+        movecheck(dir);
+        printmap();
+        SetConsoleTextAttribute(hConsole, 4);
+        printf("A nu ma. Te la pelo el dragon.\n");
+          break;
+      }else{
               vidas--;
               printmap();
               SetConsoleTextAttribute(hConsole, 4);
               printf("Un Dragon!! Corre Perra! Corre!.\n");
-              break;
+              break;}
     case 21:
     matriz[actrow][actcol]=0;
     if(init==0){mapasave();}

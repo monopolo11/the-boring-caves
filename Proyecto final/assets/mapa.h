@@ -249,6 +249,9 @@ Borde Vertical - 10     - |
     case 5:
       jugador='K';
       break;
+    case 8:
+      jugador='Q';
+      break;
     }
 system("cls");
 for (row=0; row!=32; row++) {

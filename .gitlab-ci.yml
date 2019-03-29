@@ -14,7 +14,7 @@ build:
     - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -o juego.exe
   artifacts:
     paths:
-      - /var/www/juego/juego.exe
+      - /var/www/html/juego/juego.exe
   # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
   # cache:
   #   paths:

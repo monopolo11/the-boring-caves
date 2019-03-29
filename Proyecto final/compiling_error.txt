@@ -1,0 +1,4 @@
+C:\Users\Bernardo Ruiz\Documents\proyecto-final\Proyecto final\main.c:15:10: fatal error: assets/mapas.h: No such file or directory
+ #include "assets/mapas.h"
+          ^~~~~~~~~~~~~~~~
+compilation terminated.

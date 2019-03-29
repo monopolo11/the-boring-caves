@@ -70,7 +70,7 @@ int main() {
         printf("El usuario cerro el programa");
         break;
     }
-
+aaaaaaa
     //arriba 119
     //abajo 115
     //izq 97

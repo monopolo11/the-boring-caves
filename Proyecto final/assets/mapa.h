@@ -48,8 +48,8 @@ void mapasave(){
     mapa1[actrow][actcol]=2;
     escalera1=actrow;
     escalera2=actcol;
-    for (row=0; row!=12; row++) {
-        for (col=0; col!=12; col++) {
+    for (row=0; row!=32; row++) {
+        for (col=0; col!=32; col++) {
           mapa1[row][col]=matriz[row][col];
         }
       }
@@ -57,8 +57,8 @@ void mapasave(){
         break;
     case 2:
     mapa2[actrow][actcol]=2;
-    for (row=0; row!=12; row++) {
-        for (col=0; col!=12; col++) {
+    for (row=0; row!=32; row++) {
+        for (col=0; col!=32; col++) {
           mapa2[row][col]=matriz[row][col];
         }
       }
@@ -74,8 +74,8 @@ void mapasave(){
   switch (nivel) {
     case 1:
     mapa1_1[actrow][actcol]=2;
-    for (row=0; row!=12; row++) {
-        for (col=0; col!=12; col++) {
+    for (row=0; row!=32; row++) {
+        for (col=0; col!=32; col++) {
           mapa1_1[row][col]=matriz[row][col];
         }
       }
@@ -84,8 +84,8 @@ void mapasave(){
         resetmatrizvis();
         break;
     case 2:
-    for (row=0; row!=12; row++) {
-        for (col=0; col!=12; col++) {
+    for (row=0; row!=32; row++) {
+        for (col=0; col!=32; col++) {
           mapa1_1[row][col]=matriz[row][col];
         }
       }
@@ -138,7 +138,7 @@ void cambiomapa(){
         }
       }
        actrow = 2;
-       actcol = 1;
+       actcol = 2;
         resetmatrizvis();
         break;
     case 2:

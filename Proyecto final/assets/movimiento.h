@@ -65,6 +65,7 @@ void movecheck(int dir){
     case 6:
       if (espada==1) {
         matriz[deltarow][deltacol]=0;
+        vidas++;
         movecheck(dir);
           break;
       }else{
@@ -87,29 +88,34 @@ void movecheck(int dir){
               break;
     case 9:
           if (llave==1) {
+            matriz[actrow][actcol]=0;
             nivel=nivel+1;
             cambiomapa();
             printmap();
             break;
-          }else{printf("\nTe falta la llave. ");break;}
-          printmap();
-          break;
+          }if(llave==0){
+            matriz[actrow][actcol]=2;
+            printmap();
+            printf("\nTe falta la llave. ");
+            break;
+          }
     case 21:
+    matriz[actrow][actcol]=0;
+    if(init==0){mapasave();}
         cueva=1;
+        llavetemp=1;
+          //if(init==0){mapasave();}
         cambiomapa();
         printmap();
         break;
     case 22:
+    matriz[actrow][actcol]=0;
+    if(init==0){mapasave();}
           cueva=0;
+          //  if(init==0){mapasave();}
           cambiomapa();
-          llave=1;
           printmap();
-          break;
-    case 23:
-          vidas++;
-          matriz[deltarow][deltacol]=0;
-          movecheck(dir);
-          printmap();
+          llavetemp = 0;
           break;
     case 24:
           juegofin=1;

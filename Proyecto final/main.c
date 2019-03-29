@@ -18,7 +18,8 @@ char jugador = 'O';
 int main() {
   deltarow = actrow;
   deltacol = actcol;
-    cambiomapa(1);
+  cambiomapa(1);
+  init = 0;
     printmap();
     SetConsoleTextAttribute(hConsole, 10);
     printf("\nVidas: %d\n",vidas);

@@ -18,6 +18,7 @@
 //#define reset   "\x1b[0m"
 HANDLE  hConsole;
 int llave = 0;
+int llavetemp=0;
 int nivel = 1;
 int cueva = 0;
 int espada = 0;
@@ -46,7 +47,7 @@ int mapa1_1[12][12] ={
   {11,3,0,0,0,0,0,22,0,3,11},
   {11,3,0,3,3,3,0,0,0,3,11},
   {11,3,0,0,0,3,3,3,0,3,11},
-  {11,3,3,3,0,0,7,0,23,3,11},
+  {11,3,3,3,0,0,7,0,0,3,11},
   {11,3,3,3,3,3,3,3,3,3,11},
   {10,10,10,10,10,10,10,10,10,10,10,0}
 };
@@ -99,7 +100,7 @@ int matrizvis[12][12] = {
 };
 //Habilita o desahabilita que se oculte el mapa
 int matrizvisset = 0;
-
+int init = 1;
 int col,row;
 int actrow = 2;
 int actcol = 1;
@@ -112,9 +113,69 @@ void resetmatrizvis(){
     }
 }
 
+void mapasave(){
+  mapa1[2][1]=2;
+  mapa1_1[2][1]=2;
+  mapa2[2][1]=2;
+  if(cueva!=1){
+  switch (nivel) {
+    case 1:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          mapa1[row][col]=matriz[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+    case 2:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          mapa2[row][col]=matriz[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+      case 3:
+        juegofin=1;
+        break;
+  }
+}else{
+  switch (nivel) {
+    case 1:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          mapa1_1[row][col]=matriz[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+    case 2:
+    for (row=0; row!=12; row++) {
+        for (col=0; col!=12; col++) {
+          mapa1_1[row][col]=matriz[row][col];
+        }
+      }
+        actrow = 2;
+        actcol = 1;
+        resetmatrizvis();
+        break;
+      case 3:
+        juegofin=1;
+        break;
+  }
+}
+}
+
 void cambiomapa(){
   if(cueva!=1){
-    llave = 0;
+    if(llavetemp!=1){
+    llave = 0;}
   switch (nivel) {
     case 1:
     for (row=0; row!=12; row++) {
@@ -219,14 +280,10 @@ void printmapchar(int valormat){
           SetConsoleTextAttribute(hConsole, 14);
           printf("E ");
           break;
-      case 23:
-            SetConsoleTextAttribute(hConsole, 13);
-            printf("V ");
-            break;
-            case 24:
-                 SetConsoleTextAttribute(hConsole, 2);
-                    printf("* ");
-                    break;
+      case 24:
+          SetConsoleTextAttribute(hConsole, 2);
+          printf("* ");
+          break;
 }
 }
 
@@ -244,7 +301,7 @@ Camino -    0             -
 Muros -     1             - *
 Jugador -   2             - 0
 Llave -     5             - y
-Puerta -    9             - y
+Puerta -    9             - h
 Borde Horizontal - 10     - -
 Borde Vertical - 10     - |
 

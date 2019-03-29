@@ -31,8 +31,8 @@ int actrow = 2;
 int actcol = 1;
 
 void resetmatrizvis(){
-  for (row=0; row!=12; row++) {
-      for (col=0; col!=12; col++) {
+  for (row=0; row!=32; row++) {
+      for (col=0; col!=32; col++) {
         matrizvis[row][col]=matrizvisres[row][col];
       }
     }

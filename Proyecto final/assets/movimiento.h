@@ -99,6 +99,12 @@ void movecheck(int dir){
             printf("\nTe falta la llave. ");
             break;
           }
+      case 12:
+              vidas--;
+              printmap();
+              SetConsoleTextAttribute(hConsole, 4);
+              printf("\nUn Dragon!! Corre Perra! Corre!.");
+              break;
     case 21:
     matriz[actrow][actcol]=0;
     if(init==0){mapasave();}

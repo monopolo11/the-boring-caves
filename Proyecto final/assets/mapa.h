@@ -29,7 +29,7 @@ int mapa1[12][12] ={
   {11,1,0,0,0,0,0,0,5,1,11},
   {11,1,0,1,1,1,1,1,1,1,11},
   {11,1,0,0,0,0,0,0,21,1,11},
-  {11,1,6,1,1,1,1,0,1,1,11},
+  {11,1,6,1,1,1,24,0,1,1,11},
   {11,1,0,0,0,1,1,1,1,1,11},
   {11,1,1,1,0,0,0,0,0,1,11},
   {11,1,1,1,1,1,1,9,1,1,11},
@@ -44,9 +44,9 @@ int mapa1_1[12][12] ={
   {11,3,0,0,0,0,0,0,3,3,11},
   {11,3,0,3,3,3,3,3,3,3,11},
   {11,3,0,0,0,0,0,22,0,3,11},
-  {11,3,0,3,3,3,3,0,3,3,11},
-  {11,3,0,0,0,3,3,3,3,3,11},
-  {11,3,3,3,0,0,7,0,0,3,11},
+  {11,3,0,3,3,3,0,0,0,3,11},
+  {11,3,0,0,0,3,3,3,0,3,11},
+  {11,3,3,3,0,0,7,0,23,3,11},
   {11,3,3,3,3,3,3,3,3,3,11},
   {10,10,10,10,10,10,10,10,10,10,10,0}
 };
@@ -98,7 +98,7 @@ int matrizvis[12][12] = {
   {1,1,1,1,1,1,1,1,1,1,1}
 };
 //Habilita o desahabilita que se oculte el mapa
-int matrizvisset = 1;
+int matrizvisset = 0;
 
 int col,row;
 int actrow = 2;
@@ -170,65 +170,63 @@ void cambiomapa(){
 }
 
 void printmapchar(int valormat){
+    hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   switch (valormat) {
       case 0:
           printf("  ");
           break;
       case 1:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
        SetConsoleTextAttribute(hConsole, 2);
           printf("* ");
           break;
       case 2:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
        SetConsoleTextAttribute(hConsole, 7);
-          printf("O ");
+          printf("%c ",jugador);
           break;
       case 3:
-          hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
            SetConsoleTextAttribute(hConsole, 8);
               printf("* ");
               break;
       case 5:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
        SetConsoleTextAttribute(hConsole, 6);
         printf("y ");
         break;
       case 6:
-        hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
          SetConsoleTextAttribute(hConsole, 4);
           printf("F ");
           break;
       case 7:
-            hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
              SetConsoleTextAttribute(hConsole, 4);
               printf("+ ");
               break;
       case 9:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
        SetConsoleTextAttribute(hConsole, 6);
           printf("H ");
           break;
       case 10:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 3);
+          SetConsoleTextAttribute(hConsole, 3);
           printf("- ");
           break;
       case 11:
-      hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-       SetConsoleTextAttribute(hConsole, 3);
-          printf("| ");
-          break;
-          case 21:
-              hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-               SetConsoleTextAttribute(hConsole, 14);
-                  printf("E ");
-                  break;
+        SetConsoleTextAttribute(hConsole, 3);
+        printf("| ");
+        break;
+      case 21:
+        SetConsoleTextAttribute(hConsole, 14);
+        printf("E ");
+        break;
       case 22:
-          hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-           SetConsoleTextAttribute(hConsole, 14);
-              printf("E ");
-              break;
+          SetConsoleTextAttribute(hConsole, 14);
+          printf("E ");
+          break;
+      case 23:
+            SetConsoleTextAttribute(hConsole, 13);
+            printf("V ");
+            break;
+            case 24:
+                 SetConsoleTextAttribute(hConsole, 2);
+                    printf("* ");
+                    break;
 }
 }
 
@@ -251,6 +249,17 @@ Borde Horizontal - 10     - -
 Borde Vertical - 10     - |
 
 */
+switch (vidas) {
+  case 3:
+    jugador='O';
+    break;
+  case 2:
+    jugador='o';
+    break;
+  case 1:
+    jugador='.';
+    break;
+  }
 system("cls");
 for (row=0; row!=12; row++) {
     printf("\n");

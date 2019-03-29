@@ -22,6 +22,7 @@ void makevis(){
   matrizvis[actrow+2][actcol-2]=1;
   matrizvis[actrow+2][actcol]=1;
   matrizvis[actrow+2][actcol+2]=1;
+
 }
 
 void movecheck(int dir){
@@ -66,7 +67,13 @@ void movecheck(int dir){
         matriz[deltarow][deltacol]=0;
         movecheck(dir);
           break;
-      }else{printmap();printf("Necesitas una espada. ");vidas--;break;}
+      }else{
+        vidas--;
+        printmap();
+        SetConsoleTextAttribute(hConsole, 4);
+        printf("\nNecesitas una espada.");
+        break;
+      }
         printmap();
         break;
     case 7:
@@ -84,7 +91,7 @@ void movecheck(int dir){
             cambiomapa();
             printmap();
             break;
-          }else{printf("Te falta la llave. ");break;}
+          }else{printf("\nTe falta la llave. ");break;}
           printmap();
           break;
     case 21:
@@ -98,9 +105,18 @@ void movecheck(int dir){
           llave=1;
           printmap();
           break;
+    case 23:
+          vidas++;
+          matriz[deltarow][deltacol]=0;
+          movecheck(dir);
+          printmap();
+          break;
+    case 24:
+          juegofin=1;
+                break;
     default:
       printmap();
-      printf("Movimiento invalido. \a");
+      printf("\nMovimiento invalido.");
       break;
   }
 }

@@ -7,6 +7,7 @@
 //
 int juegofin = 0;
 int vidas = 3;
+char jugador = 'O';
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +20,8 @@ int main() {
   deltacol = actcol;
     cambiomapa(1);
     printmap();
-    printf("Vidas: %d",vidas);
+    SetConsoleTextAttribute(hConsole, 10);
+    printf("\nVidas: %d\n",vidas);
     char ch = 0;
     int cont = 0;
     while (juegofin==0) {
@@ -44,13 +46,19 @@ int main() {
         case 113:
             juegofin=3;
             break;
+        default:
+          printf("Esa tecla no hace ni madres\n");
+          break;
     }
-    printf("Vidas: %d ",vidas);
+    SetConsoleTextAttribute(hConsole, 10);
+    printf("\nVidas: %d \n",vidas);
     if (llave==1) {
-      printf("El jugador tiene la llave");
+      SetConsoleTextAttribute(hConsole, 6);
+      printf("El jugador tiene la llave\n");
     }
     if (espada==1) {
-      printf("El jugador tiene la espada");
+      SetConsoleTextAttribute(hConsole, 4);
+      printf("El jugador tiene la espada\n");
     }
     if (vidas==0) {
       juegofin=2;
@@ -63,7 +71,7 @@ int main() {
         break;
       case 2:
         system("cls");
-        printf("Perdiste HDP");
+        printf("Perdistes HDP");
         break;
       case 3:
         system("cls");

@@ -11,7 +11,7 @@ build:
   # before_script: 
   #   - apt update && apt -y install make autoconf 
   script: 
-    - x86_64-w64-mingw32-gcc main.c -o Proyecto final/juego.exe
+    - x86_64-w64-mingw32-gcc Proyecto final/main.c -o juego.exe
   artifacts:
     paths:
       - juego.exe

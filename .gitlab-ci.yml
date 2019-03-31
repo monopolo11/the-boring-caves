@@ -13,7 +13,7 @@ build:
   script: 
     - mkdir .build
     - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -lwinmm -o .build/juego.exe
-    - cp -R sounds .build
+    - cp -R Proyecto\ final/sounds .build
     - cd .build
     - pwd
     - zip -r /var/www/html/juego/juego.zip *

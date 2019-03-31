@@ -81,15 +81,21 @@ int main() {
       case 1:
         system("cls");
         printf("Has terminado el nivel");
+        printf("Presiona cualquier tecla para continuar.");
+        getch();
         break;
       case 2:
         system("cls");
-        PlaySound("sounds/oof.wav", NULL, SND_ASYNC | SND_FILENAME);
         printf("Perdistes HDP");
+        PlaySound("sounds/oof.wav", NULL, SND_ASYNC | SND_FILENAME);
+        printf("Presiona cualquier tecla para continuar.");
+        getch();
         break;
       case 3:
         system("cls");
         printf("El usuario cerro el programa");
+        printf("Presiona cualquier tecla para continuar.");
+        getch();
         break;
     }
     //arriba 119

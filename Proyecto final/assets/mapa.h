@@ -17,13 +17,13 @@
 //#define cyan     "\x1b[36m"
 //#define reset   "\x1b[0m"
 HANDLE  hConsole;
-int llave = 0;
+
 int llavetemp=0;
 int nivel = 1;
 int cueva = 0;
-int espada = 0;
+
 //Habilita o desahabilita que se oculte el mapa
-int matrizvisset = 0;
+int matrizvisset = 1;
 int init = 1;
 int col,row;
 int actrow;
@@ -111,7 +111,7 @@ void mapasave(){
 void cambiomapa(){
   if(cueva!=1){
     if(llavetemp!=1){
-    llave = 0;}
+    player.llave = 0;}
   switch (nivel) {
     case 1:
     for (row=0; row!=32; row++) {
@@ -129,11 +129,15 @@ void cambiomapa(){
           }
         break;
     case 2:
+    mapa2[32][0]=2;
+    mapa2[32][1]=2;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           matriz[row][col]=mapa2[row][col];
         }
       }
+      mapa2[32][0]=2;
+      mapa2[32][1]=2;
       actrow = mapa2[32][0];
       actcol = mapa1[32][1];
       //carga matriz de visibilidad
@@ -232,6 +236,10 @@ void printmapchar(int valormat){
           SetConsoleTextAttribute(hConsole, 4);
           printf("D ");
           break;
+      case 13:
+          SetConsoleTextAttribute(hConsole, 4);
+          printf("A ");
+          break;
       case 21:
         SetConsoleTextAttribute(hConsole, 14);
         printf("E ");
@@ -260,7 +268,7 @@ item - Valor en matriz - representacion grafica
 Camino -    0             -
 Muros -     1             - *
 player.estado -   2             - 0
-Llave -     5             - y
+player.llave -     5             - y
 Puerta -    9             - h
 Borde Horizontal - 10     - -
 Borde Vertical - 10     - |
@@ -278,9 +286,6 @@ Borde Vertical - 10     - |
       player.estado='.';
       break;
     case 5:
-      player.estado='K';
-      break;
-    case 8:
       player.estado='Q';
       break;
     }
@@ -308,13 +313,17 @@ if(cueva==1){
 SetConsoleTextAttribute(hConsole, 10);
 printf("Vidas: %d\n",player.vidas);
 printf("Antorchas: %d \n",player.antorcha);
-if (llave==1) {
+if (player.llave==1) {
   SetConsoleTextAttribute(hConsole, 6);
   printf("El Jugador tiene la llave\n");
 }
-if (espada==1) {
+if (player.espada==1) {
   SetConsoleTextAttribute(hConsole, 4);
   printf("El Jugador tiene la espada\n");
+}
+if (player.armadura==1) {
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("El Jugador tiene la armadura\n");
 }
 if (player.vidas==0) {
   juegofin=2;
@@ -348,13 +357,16 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 7);printf("Tu avatar\n");
   SetConsoleTextAttribute(hConsole, 6);
   printf("y ");
-  SetConsoleTextAttribute(hConsole, 7);printf("Una llave, la necesitaras para pasar por la puerta\n");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una player.llave, la necesitaras para pasar por la puerta\n");
   SetConsoleTextAttribute(hConsole, 4);
   printf("F ");
   SetConsoleTextAttribute(hConsole, 7);printf("Un enemigo\n");
   SetConsoleTextAttribute(hConsole, 4);
   printf("+ ");
-  SetConsoleTextAttribute(hConsole, 7);printf("Una espada, la necesitaras para pasar por los enemigos\n");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una player.espada, la necesitaras para pasar por los enemigos\n");
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("A ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una armadura, la necesitaras para pasar por los enemigos\n");
   SetConsoleTextAttribute(hConsole, 6);
   printf("H ");
   SetConsoleTextAttribute(hConsole, 7);printf("Una Puerta\n");

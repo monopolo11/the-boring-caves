@@ -12,6 +12,7 @@ typedef struct Jugador1 {
    int llave;
    int espada;
    char estado;
+   int armadura;
 } Jugador1;
 Jugador1 player;
 #include <conio.h>
@@ -63,6 +64,12 @@ int main() {
             break;
         case 105:
             printinicio();
+            break;
+        case 108:
+        if (matrizvisset==1) {
+          matrizvisset = 0;
+        }else{matrizvisset=1;}
+        printmap();
             break;
         default:
           printf("Esa tecla no hace ni madres\n");

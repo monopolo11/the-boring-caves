@@ -140,11 +140,11 @@ void movecheck(int dir){
       //makevis();
       actcol=deltacol;
       actrow=deltarow;
-      llave = 1;
+      player.llave = 1;
       printmap();
       break;
     case 6:
-      if (espada==1) {
+      if (player.espada==1) {
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         movecheck(dir);
@@ -165,24 +165,24 @@ void movecheck(int dir){
               //makevis();
               actcol=deltacol;
               actrow=deltarow;
-              espada = 1;
+              player.espada = 1;
               printmap();
               break;
     case 9:
-          if (llave==1) {
+          if (player.llave==1) {
             matriz[actrow][actcol]=0;
             nivel=nivel+1;
             cambiomapa();
             printmap();
             break;
-          }if(llave==0){
+          }if(player.llave==0){
             matriz[actrow][actcol]=2;
             printmap();
-            printf("Te falta la llave.\n");
+            printf("Te falta la player.llave.\n");
             break;
           }
       case 12:
-      if (espada==1&&player.vidas==8) {
+      if (player.espada==1&&player.armadura==1) {
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         movecheck(dir);
@@ -196,6 +196,15 @@ void movecheck(int dir){
               SetConsoleTextAttribute(hConsole, 4);
               printf("Un Dragon!! Corre Perra! Corre!.\n");
               break;}
+      case 13:
+        matriz[actrow][actcol]=0;
+        matriz[deltarow][deltacol]=2;
+        //makevis();
+        actcol=deltacol;
+        actrow=deltarow;
+        player.armadura = 1;
+        printmap();
+        break;
     case 21:
     //matriz[actrow][actcol]=0;
     if(init==0){mapasave();}

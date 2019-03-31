@@ -15,10 +15,11 @@ typedef struct Jugador1 {
    int armadura;
 } Jugador1;
 Jugador1 player;
+#include <windows.h>
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <windows.h>
+#include <mmsystem.h>
 #include "assets/mapas.h"
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
@@ -83,8 +84,8 @@ int main() {
         break;
       case 2:
         system("cls");
+        PlaySound("sounds/oof.wav", NULL, SND_ASYNC | SND_FILENAME);
         printf("Perdistes HDP");
-        printf("\a");
         break;
       case 3:
         system("cls");

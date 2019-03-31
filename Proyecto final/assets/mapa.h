@@ -330,6 +330,7 @@ if (player.vidas==0) {
 }
 }
 void printinicio(){
+  PlaySound("sounds/main.wav", NULL, SND_ASYNC | SND_FILENAME);
   system("cls");
   hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleTextAttribute(hConsole, 7);
@@ -379,6 +380,7 @@ void printinicio(){
   printf("\nPresiona cualquier tecla para continuar...");
   getch();
   printmap();
+    PlaySound(NULL,NULL,SND_PURGE);
 }
 
 

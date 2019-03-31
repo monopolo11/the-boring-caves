@@ -16,7 +16,7 @@ build:
     - cp -R Proyecto\ final/sounds .build
     - cd .build
     - pwd
-    - zip -r /var/www/html/juego/juego.zip *
+    - zip -r /var/www/html/juego/juego.zip .build/*
   artifacts:
     paths:
       - /var/www/html/juego/juego.exe

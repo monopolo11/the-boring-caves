@@ -15,7 +15,8 @@ build:
     - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -lwinmm -o .build/juego.exe
     - ls
     - cp -r Proyecto\ final/sounds .build
-    - zip -r /var/www/html/juego/juego.zip .build/
+    - cd .build
+    - zip -r /var/www/html/juego/juego.zip *
   artifacts:
     paths:
       - /var/www/html/juego/juego.exe

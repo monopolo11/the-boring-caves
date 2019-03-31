@@ -11,7 +11,7 @@
 
 //#define rojo    "\x1b[31m"
 //#define verde   "\x1b[32m"
-//#define amarillo  "\x1b[33m"
+//#define amarillo  "\x1b[32m"
 //#define azul    "\x1b[34m"
 //#define magenta "\x1b[35m"
 //#define cyan     "\x1b[36m"
@@ -22,49 +22,47 @@ int llavetemp=0;
 int nivel = 1;
 int cueva = 0;
 int espada = 0;
-int escalera1 = 2;
-int escalera2 = 1;
 //Habilita o desahabilita que se oculte el mapa
-int matrizvisset = 0;
+int matrizvisset = 1;
 int init = 1;
 int col,row;
-int actrow = 2;
-int actcol = 1;
-
-void resetmatrizvis(){
-  for (row=0; row!=32; row++) {
-      for (col=0; col!=32; col++) {
-        matrizvis[row][col]=matrizvisres[row][col];
-      }
-    }
-}
+int actrow;
+int actcol;
 
 void mapasave(){
-
-
   if(cueva!=1){
   switch (nivel) {
     case 1:
+    mapa1[32][0]=actrow;
+    mapa1[32][1]=actcol;
     mapa1[actrow][actcol]=2;
-    escalera1=actrow;
-    escalera2=actcol;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           mapa1[row][col]=matriz[row][col];
         }
       }
-        resetmatrizvis();
+      //guarda matris de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            mapa1_vis[row][col]=matrizvis[row][col];
+          }
+        }
         break;
     case 2:
+    mapa2[32][0]=actrow;
+    mapa2[32][1]=actcol;
     mapa2[actrow][actcol]=2;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           mapa2[row][col]=matriz[row][col];
         }
       }
-        //actrow = 2;
-        //actcol = 1;
-        resetmatrizvis();
+      //guarda matris de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            mapa2_vis[row][col]=matrizvis[row][col];
+          }
+        }
         break;
       case 3:
         juegofin=1;
@@ -73,25 +71,35 @@ void mapasave(){
 }else{
   switch (nivel) {
     case 1:
+    mapa1_1[32][0]=actrow;
+    mapa1_1[32][1]=actcol;
     mapa1_1[actrow][actcol]=2;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           mapa1_1[row][col]=matriz[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
-        resetmatrizvis();
+      //guarda matris de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            mapa1_1_vis[row][col]=matrizvis[row][col];
+          }
+        }
         break;
     case 2:
+    mapa1_1[32][0]=actrow;
+    mapa1_1[32][1]=actcol;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           mapa1_1[row][col]=matriz[row][col];
         }
       }
-        //actrow = 2;
-        //actcol = 1;
-        resetmatrizvis();
+      //guarda matris de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            mapa1_1_vis[row][col]=matrizvis[row][col];
+          }
+        }
         break;
       case 3:
         juegofin=1;
@@ -111,9 +119,14 @@ void cambiomapa(){
           matriz[row][col]=mapa1[row][col];
         }
       }
-      actrow = escalera1;
-      actcol = escalera2;
-        resetmatrizvis();
+      actrow = mapa1[32][0];
+      actcol = mapa1[32][1];
+        //carga matriz de visibilidad
+        for (row=0; row!=32; row++) {
+            for (col=0; col!=32; col++) {
+              matrizvis[row][col]=mapa1_vis[row][col];
+            }
+          }
         break;
     case 2:
     for (row=0; row!=32; row++) {
@@ -121,9 +134,14 @@ void cambiomapa(){
           matriz[row][col]=mapa2[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
-        resetmatrizvis();
+      actrow = mapa2[32][0];
+      actcol = mapa1[32][1];
+      //carga matriz de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            matrizvis[row][col]=mapa2_vis[row][col];
+          }
+        }
         break;
       case 3:
         juegofin=1;
@@ -137,9 +155,14 @@ void cambiomapa(){
           matriz[row][col]=mapa1_1[row][col];
         }
       }
-       actrow = 2;
-       actcol = 2;
-        resetmatrizvis();
+      actrow = mapa1_1[32][0];
+      actcol = mapa1_1[32][1];
+      //carga matriz de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            matrizvis[row][col]=mapa1_1_vis[row][col];
+          }
+        }
         break;
     case 2:
     for (row=0; row!=32; row++) {
@@ -147,9 +170,14 @@ void cambiomapa(){
           matriz[row][col]=mapa1_1[row][col];
         }
       }
-        actrow = 2;
-        actcol = 1;
-        resetmatrizvis();
+      actrow = mapa1_1[32][0];
+      actcol = mapa1_1[32][1];
+      //carga matriz de visibilidad
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            matrizvis[row][col]=mapa1_1_vis[row][col];
+          }
+        }
         break;
       case 3:
         juegofin=1;
@@ -170,7 +198,7 @@ void printmapchar(int valormat){
           break;
       case 2:
        SetConsoleTextAttribute(hConsole, 7);
-          printf("%c ",jugador);
+          printf("%c ",player.estado);
           break;
       case 3:
            SetConsoleTextAttribute(hConsole, 8);
@@ -231,7 +259,7 @@ int cont = 0;
 item - Valor en matriz - representacion grafica
 Camino -    0             -
 Muros -     1             - *
-Jugador -   2             - 0
+player.estado -   2             - 0
 Llave -     5             - y
 Puerta -    9             - h
 Borde Horizontal - 10     - -
@@ -239,21 +267,21 @@ Borde Vertical - 10     - |
 
 */
 
-  switch (vidas) {
+  switch (player.vidas) {
     case 3:
-      jugador='O';
+      player.estado='O';
       break;
     case 2:
-      jugador='o';
+      player.estado='o';
       break;
     case 1:
-      jugador='.';
+      player.estado='.';
       break;
     case 5:
-      jugador='K';
+      player.estado='K';
       break;
     case 8:
-      jugador='Q';
+      player.estado='Q';
       break;
     }
 system("cls");
@@ -262,9 +290,9 @@ for (row=0; row!=32; row++) {
     for (col=0; col!=32; col++) {
         act=matriz[row][col];
         if (matrizvisset==1){
-        if(matrizvis[row][col]==1){
-          printmapchar(matriz[row][col]);
-    }else{printf("  ");}
+        if(matrizvis[row][col]==0){
+          printf("  ");
+    }else{printmapchar(matriz[row][col]);}
   }else{
     printmapchar(matriz[row][col]);
   }
@@ -278,18 +306,67 @@ if(cueva==1){
   printf("Cueva: No \n");}
   SetConsoleTextAttribute(hConsole, 10);
 SetConsoleTextAttribute(hConsole, 10);
-printf("Vidas: %d\n",vidas);
+printf("Vidas: %d\n",player.vidas);
+printf("Antorchas: %d \n",player.antorcha);
 if (llave==1) {
   SetConsoleTextAttribute(hConsole, 6);
-  printf("El jugador tiene la llave\n");
+  printf("El Jugador tiene la llave\n");
 }
 if (espada==1) {
   SetConsoleTextAttribute(hConsole, 4);
-  printf("El jugador tiene la espada\n");
+  printf("El Jugador tiene la espada\n");
 }
-if (vidas==0) {
+if (player.vidas==0) {
   juegofin=2;
 }
+}
+void printinicio(){
+  system("cls");
+  hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+  SetConsoleTextAttribute(hConsole, 7);
+  printf("Bienvenido a este juego\n");
+  printf("Instrucciones:\n");
+  printf("Tus movimientos seran con ");
+  SetConsoleTextAttribute(hConsole, 2);
+  printf("W,A,S,D\n");
+  SetConsoleTextAttribute(hConsole, 7);
+  printf("Si quieres poner una antorcha para dejar visible esa area preciona ");
+  SetConsoleTextAttribute(hConsole, 2);
+  printf("R\n");
+  SetConsoleTextAttribute(hConsole, 7);
+  printf("Si en cualquier momento deseas volver a ver esta pantalla presiona ");
+  SetConsoleTextAttribute(hConsole, 2);
+  printf("I\n");
+  SetConsoleTextAttribute(hConsole, 7);
+  printf("Suerte en tu aventura, intenta descubrir los diferentes secretos escondidos\n en los mapa\n");
+  printf("Leyenda:\n");
+  SetConsoleTextAttribute(hConsole, 2);
+  printf("* ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Muros\n");
+  SetConsoleTextAttribute(hConsole, 7);
+  printf("%c ",player.estado);
+  SetConsoleTextAttribute(hConsole, 7);printf("Tu avatar\n");
+  SetConsoleTextAttribute(hConsole, 6);
+  printf("y ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una llave, la necesitaras para pasar por la puerta\n");
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("F ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Un enemigo\n");
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("+ ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una espada, la necesitaras para pasar por los enemigos\n");
+  SetConsoleTextAttribute(hConsole, 6);
+  printf("H ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una Puerta\n");
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("D ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Un dragon, invencible excepto si tienes lo necesario\n");
+  SetConsoleTextAttribute(hConsole, 14);
+  printf("E ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Escaleras\n");
+  printf("\nPresiona cualquier tecla para continuar...");
+  getch();
+  printmap();
 }
 
 

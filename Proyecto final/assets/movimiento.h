@@ -3,29 +3,110 @@
   int deltarow = 0;
   int deltacol = 0;
 void makevis(){
-  matrizvis[actrow-1][actcol-1]=1;
-  matrizvis[actrow-1][actcol]=1;
-  matrizvis[actrow-1][actcol+1]=1;
-  matrizvis[actrow][actcol-1]=1;
-  matrizvis[actrow][actcol]=1;
-  matrizvis[actrow][actcol+1]=1;
-  matrizvis[actrow+1][actcol-1]=1;
-  matrizvis[actrow+1][actcol]=1;
-  matrizvis[actrow+1][actcol+1]=1;
+  //quitar visibilidad
+  if(matrizvis[actrow][actcol-3]!=2){matrizvis[actrow][actcol-3]=0;};
+  if(matrizvis[actrow][actcol+3]!=2){matrizvis[actrow][actcol+3]=0;};
 
-  matrizvis[actrow-2][actcol-2]=1;
-  matrizvis[actrow-2][actcol]=1;
-  matrizvis[actrow-2][actcol+2]=1;
-  matrizvis[actrow][actcol-2]=1;
-  matrizvis[actrow][actcol]=1;
-  matrizvis[actrow][actcol+2]=1;
-  matrizvis[actrow+2][actcol-2]=1;
-  matrizvis[actrow+2][actcol]=1;
-  matrizvis[actrow+2][actcol+2]=1;
+  if(matrizvis[actrow-1][actcol-3]!=2){matrizvis[actrow-1][actcol-3]=0;};
+  if(matrizvis[actrow-1][actcol+3]!=2){matrizvis[actrow-1][actcol+3]=0;};
+
+  if(matrizvis[actrow-2][actcol-3]!=2){matrizvis[actrow-2][actcol-3]=0;};
+  if(matrizvis[actrow-2][actcol+3]!=2){matrizvis[actrow-2][actcol+3]=0;};
+
+  if(matrizvis[actrow+1][actcol-3]!=2){matrizvis[actrow+1][actcol-3]=0;};
+  if(matrizvis[actrow+1][actcol+3]!=2){matrizvis[actrow+1][actcol+3]=0;};
+
+  if(matrizvis[actrow+2][actcol-3]!=2){matrizvis[actrow+2][actcol-3]=0;};
+  if(matrizvis[actrow+2][actcol+3]!=2){matrizvis[actrow+2][actcol+3]=0;};
+
+  if(matrizvis[actrow-3][actcol-3]!=2){matrizvis[actrow-3][actcol-3]=0;};
+  if(matrizvis[actrow-3][actcol-2]!=2){matrizvis[actrow-3][actcol-2]=0;};
+  if(matrizvis[actrow-3][actcol-1]!=2){matrizvis[actrow-3][actcol-1]=0;};
+  if(matrizvis[actrow-3][actcol]!=2){matrizvis[actrow-3][actcol]=0;};
+  if(matrizvis[actrow-3][actcol+1]!=2){matrizvis[actrow-3][actcol+1]=0;};
+  if(matrizvis[actrow-3][actcol+2]!=2){matrizvis[actrow-3][actcol+2]=0;};
+  if(matrizvis[actrow-3][actcol+3]!=2){matrizvis[actrow-3][actcol+3]=0;};
+
+  if(matrizvis[actrow+3][actcol-3]!=2){matrizvis[actrow+3][actcol-3]=0;};
+  if(matrizvis[actrow+3][actcol-2]!=2){matrizvis[actrow+3][actcol-2]=0;};
+  if(matrizvis[actrow+3][actcol-1]!=2){matrizvis[actrow+3][actcol-1]=0;};
+  if(matrizvis[actrow+3][actcol]!=2){matrizvis[actrow+3][actcol]=0;};
+  if(matrizvis[actrow+3][actcol+1]!=2){matrizvis[actrow+3][actcol+1]=0;};
+  if(matrizvis[actrow+3][actcol+2]!=2){matrizvis[actrow+3][actcol+2]=0;};
+  if(matrizvis[actrow+3][actcol+3]!=2){matrizvis[actrow+3][actcol+3]=0;};
+  //hacer visible
+  if(matrizvis[actrow][actcol-2]!=2){matrizvis[actrow][actcol-2]=1;};
+  if(matrizvis[actrow][actcol+2]!=2){matrizvis[actrow][actcol+2]=1;};
+
+  if(matrizvis[actrow-1][actcol-2]!=2){matrizvis[actrow-1][actcol-2]=1;};
+  if(matrizvis[actrow-1][actcol+2]!=2){matrizvis[actrow-1][actcol+2]=1;};
+  if(matrizvis[actrow-1][actcol-1]!=2){matrizvis[actrow-1][actcol-1]=1;};
+  if(matrizvis[actrow-1][actcol+1]!=2){matrizvis[actrow-1][actcol+1]=1;};
+  if(matrizvis[actrow-1][actcol]!=2){matrizvis[actrow-1][actcol]=1;};
+
+  if(matrizvis[actrow-2][actcol-2]!=2){matrizvis[actrow-2][actcol-2]=1;};
+  if(matrizvis[actrow-2][actcol+2]!=2){matrizvis[actrow-2][actcol+2]=1;};
+  if(matrizvis[actrow-2][actcol-1]!=2){matrizvis[actrow-2][actcol-1]=1;};
+  if(matrizvis[actrow-2][actcol+1]!=2){matrizvis[actrow-2][actcol+1]=1;};
+  if(matrizvis[actrow-2][actcol]!=2){matrizvis[actrow-2][actcol]=1;};
+
+  if(matrizvis[actrow+1][actcol-2]!=2){matrizvis[actrow+1][actcol-2]=1;};
+  if(matrizvis[actrow+1][actcol+2]!=2){matrizvis[actrow+1][actcol+2]=1;};
+
+  if(matrizvis[actrow+1][actcol-2]!=2){matrizvis[actrow+1][actcol-2]=1;};
+  if(matrizvis[actrow+1][actcol+2]!=2){matrizvis[actrow+1][actcol+2]=1;};
+  if(matrizvis[actrow+1][actcol-1]!=2){matrizvis[actrow+1][actcol-1]=1;};
+  if(matrizvis[actrow+1][actcol+1]!=2){matrizvis[actrow+1][actcol+1]=1;};
+  if(matrizvis[actrow+1][actcol]!=2){matrizvis[actrow+1][actcol]=1;};
+
+  if(matrizvis[actrow+2][actcol-2]!=2){matrizvis[actrow+2][actcol-2]=1;};
+  if(matrizvis[actrow+2][actcol+2]!=2){matrizvis[actrow+2][actcol+2]=1;};
+  if(matrizvis[actrow+2][actcol-1]!=2){matrizvis[actrow+2][actcol-1]=1;};
+  if(matrizvis[actrow+2][actcol+1]!=2){matrizvis[actrow+2][actcol+1]=1;};
+  if(matrizvis[actrow+2][actcol]!=2){matrizvis[actrow+2][actcol]=1;};
 
 }
+void placetorch(){
+  if(player.antorcha!=0){
+  player.antorcha--;
+  printmap();
+  matrizvis[actrow][actcol-2]=2;
+  matrizvis[actrow][actcol+2]=2;
+  matrizvis[actrow][actcol-1]=2;
+  matrizvis[actrow][actcol+1]=2;
+  matrizvis[actrow][actcol+1]=2;
+  matrizvis[actrow][actcol]=3;
+
+  matrizvis[actrow-1][actcol-2]=2;
+  matrizvis[actrow-1][actcol+2]=2;
+  matrizvis[actrow-1][actcol-1]=2;
+  matrizvis[actrow-1][actcol+1]=2;
+  matrizvis[actrow-1][actcol]=2;
+
+  matrizvis[actrow-2][actcol-2]=2;
+  matrizvis[actrow-2][actcol+2]=2;
+  matrizvis[actrow-2][actcol-1]=2;
+  matrizvis[actrow-2][actcol+1]=2;
+  matrizvis[actrow-2][actcol]=2;
+
+  matrizvis[actrow+1][actcol-2]=2;
+  matrizvis[actrow+1][actcol+2]=2;
+
+  matrizvis[actrow+1][actcol-2]=2;
+  matrizvis[actrow+1][actcol+2]=2;
+  matrizvis[actrow+1][actcol-1]=2;
+  matrizvis[actrow+1][actcol+1]=2;
+  matrizvis[actrow+1][actcol]=2;
+
+  matrizvis[actrow+2][actcol-2]=2;
+  matrizvis[actrow+2][actcol+2]=2;
+  matrizvis[actrow+2][actcol-1]=2;
+  matrizvis[actrow+2][actcol+1]=2;
+  matrizvis[actrow+2][actcol]=2;
+}else{SetConsoleTextAttribute(hConsole, 4);printf("No tienes antorchas\n");}}
 
 void movecheck(int dir){
+  makevis();
   switch (dir) {
     case 0:
       deltarow=deltarow-1;
@@ -48,7 +129,7 @@ void movecheck(int dir){
     case 0:
       matriz[actrow][actcol]=0;
       matriz[deltarow][deltacol]=2;
-      makevis();
+      //makevis();
       actcol=deltacol;
       actrow=deltarow;
       printmap();
@@ -56,7 +137,7 @@ void movecheck(int dir){
     case 5:
     matriz[actrow][actcol]=0;
     matriz[deltarow][deltacol]=2;
-      makevis();
+      //makevis();
       actcol=deltacol;
       actrow=deltarow;
       llave = 1;
@@ -65,11 +146,11 @@ void movecheck(int dir){
     case 6:
       if (espada==1) {
         matriz[deltarow][deltacol]=0;
-        vidas++;
+        player.vidas++;
         movecheck(dir);
           break;
       }else{
-        vidas--;
+        player.vidas--;
         printmap();
         SetConsoleTextAttribute(hConsole, 4);
         printf("Necesitas una espada.\n");
@@ -80,7 +161,7 @@ void movecheck(int dir){
     case 7:
             matriz[actrow][actcol]=0;
             matriz[deltarow][deltacol]=2;
-              makevis();
+              //makevis();
               actcol=deltacol;
               actrow=deltarow;
               espada = 1;
@@ -100,22 +181,22 @@ void movecheck(int dir){
             break;
           }
       case 12:
-      if (espada==1&&vidas==8) {
+      if (espada==1&&player.vidas==8) {
         matriz[deltarow][deltacol]=0;
-        vidas++;
+        player.vidas++;
         movecheck(dir);
         printmap();
         SetConsoleTextAttribute(hConsole, 4);
         printf("A nu ma. Te la pelo el dragon.\n");
           break;
       }else{
-              vidas--;
+              player.vidas--;
               printmap();
               SetConsoleTextAttribute(hConsole, 4);
               printf("Un Dragon!! Corre Perra! Corre!.\n");
               break;}
     case 21:
-    matriz[actrow][actcol]=0;
+    //matriz[actrow][actcol]=0;
     if(init==0){mapasave();}
         cueva=1;
         llavetemp=1;
@@ -124,7 +205,7 @@ void movecheck(int dir){
         printmap();
         break;
     case 22:
-    matriz[actrow][actcol]=0;
+    //matriz[actrow][actcol]=0;
     if(init==0){mapasave();}
           cueva=0;
           //  if(init==0){mapasave();}

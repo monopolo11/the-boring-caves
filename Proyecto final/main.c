@@ -6,8 +6,14 @@
 //  Copyright © 2019 Bernardo Ruiz & Rodrigo Alvarez. All rights reserved.
 //
 int juegofin = 0;
-int vidas = 3;
-char jugador = 'O';
+typedef struct Jugador1 {
+   int vidas;
+   int antorcha;
+   int llave;
+   int espada;
+   char estado;
+} Jugador1;
+Jugador1 player;
 #include <conio.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,12 +23,17 @@ char jugador = 'O';
 #include "assets/movimiento.h"
 
 int main() {
-  system("MODE 80,40");
+  player.vidas = 3;
+  player.antorcha = 5;
+  player.estado='O';
+  actrow = mapa1[32][0];
+  actcol = mapa1[32][1];
+  system("MODE 80,45");
   deltarow = actrow;
   deltacol = actcol;
   cambiomapa(1);
+  printinicio();
   init = 0;
-    printmap();
     char ch = 0;
     int cont = 0;
     while (juegofin==0) {
@@ -46,6 +57,12 @@ int main() {
             break;
         case 113:
             juegofin=3;
+            break;
+        case 114:
+            placetorch();
+            break;
+        case 105:
+            printinicio();
             break;
         default:
           printf("Esa tecla no hace ni madres\n");

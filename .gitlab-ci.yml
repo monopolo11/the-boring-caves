@@ -14,7 +14,7 @@ build:
     - mkdir .build
     - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -lwinmm -o .build/juego.exe
     - cp -r sounds .build
-    -zip -r /var/www/html/juego/juego.zip .build
+    - zip -r /var/www/html/juego/juego.zip .build
   artifacts:
     paths:
       - /var/www/html/juego/juego.exe

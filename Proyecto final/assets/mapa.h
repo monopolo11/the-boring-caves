@@ -23,7 +23,7 @@ int nivel = 1;
 int cueva = 0;
 int espada = 0;
 //Habilita o desahabilita que se oculte el mapa
-int matrizvisset = 1;
+int matrizvisset = 0;
 int init = 1;
 int col,row;
 int actrow;

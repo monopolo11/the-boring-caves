@@ -148,7 +148,8 @@ void movecheck(int dir){
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         movecheck(dir);
-          break;
+        printmap();
+        break;
       }else{
         player.vidas--;
         printmap();

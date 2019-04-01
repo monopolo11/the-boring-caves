@@ -129,8 +129,8 @@ void movecheck(int dir){
     case 0:
     if (cueva==1) {
       PlaySound("PASO2", NULL, SND_ASYNC | SND_RESOURCE);
-    }
-      PlaySound("PASO1", NULL, SND_ASYNC | SND_RESOURCE);
+    }else{
+      PlaySound("PASO1", NULL, SND_ASYNC | SND_RESOURCE);}
       matriz[actrow][actcol]=0;
       matriz[deltarow][deltacol]=2;
       //makevis();

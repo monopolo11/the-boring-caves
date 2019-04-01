@@ -18,7 +18,7 @@ build:
     - cp sounds.res .build
     - cd .build
     - x86_64-w64-mingw32-gcc main.o sounds.res -o juego.exe -static-libgcc -lwinmm -m32
-    -cp juego.exe /var/www/html/juego
+    - cp juego.exe /var/www/html/juego
   # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
   # cache:
   #   paths:

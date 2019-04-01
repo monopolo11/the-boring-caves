@@ -13,8 +13,10 @@ typedef struct Jugador1 {
    int espada;
    char estado;
    int armadura;
+   int monedas;
 } Jugador1;
 Jugador1 player;
+#include <time.h>
 #include <windows.h>
 #include <conio.h>
 #include <stdio.h>
@@ -23,9 +25,11 @@ Jugador1 player;
 #include "assets/mapas.h"
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
+#include "assets/tienda.h"
 
 int main() {
   SetConsoleTitle("The Boring Caves");
+  player.monedas = 10;
   player.vidas = 3;
   player.antorcha = 5;
   player.estado='O';
@@ -73,6 +77,9 @@ int main() {
         }else{matrizvisset=1;}
         printmap();
             break;
+        case 117:
+          tienda();
+          break;
         default:
           printf("Esa tecla no hace ni madres\n");
           break;

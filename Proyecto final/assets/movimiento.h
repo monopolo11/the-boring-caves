@@ -107,6 +107,7 @@ void placetorch(){
 }else{SetConsoleTextAttribute(hConsole, 4);printf("No tienes antorchas\n");}}
 
 void movecheck(int dir){
+  moveEnemy();
   makevis();
   switch (dir) {
     case 0:
@@ -153,6 +154,7 @@ void movecheck(int dir){
         PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
+        player.monedas=player.monedas+20;
         movecheck(dir);
         printmap();
         break;
@@ -195,6 +197,7 @@ void movecheck(int dir){
         PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
+        player.monedas=player.monedas+100;
         movecheck(dir);
         printmap();
         SetConsoleTextAttribute(hConsole, 4);

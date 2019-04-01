@@ -311,6 +311,8 @@ if(cueva==1){
 SetConsoleTextAttribute(hConsole, 10);
 printf("Vidas: %d\n",player.vidas);
 printf("Antorchas: %d \n",player.antorcha);
+SetConsoleTextAttribute(hConsole, 6);
+printf("El Jugador tien: %d monedas\n",player.monedas);
 if (player.llave==1) {
   SetConsoleTextAttribute(hConsole, 6);
   printf("El Jugador tiene la llave\n");
@@ -382,5 +384,43 @@ void printinicio(){
   PlaySound(NULL,NULL,SND_PURGE);
 }
 
+void moveEnemy(){
+  int movedelta = 0;
+  time_t t;
+  srand((unsigned) time(&t));
+  for (row=0; row!=32; row++) {
+      for (col=0; col!=32; col++) {
+        if(matriz[row][col]==6||matriz[row][col]==12){
+        movedelta = rand() % 4;
+        switch (movedelta) {
+          case 0:
+            if (matriz[row][col+1]==0) {
+              matriz[row][col+1]=matriz[row][col];
+              matriz[row][col]=0;
+              break;
+            }else{}
+          case 1:
+            if (matriz[row][col-1]==0) {
+              matriz[row][col-1]=matriz[row][col];
+              matriz[row][col]=0;
+              break;
+            }else{}
+          case 2:
+              if (matriz[row+1][col]==0) {
+                matriz[row+1][col]=matriz[row][col];
+                matriz[row][col]=0;
+                break;
+              }else{}
+            case 3:
+              if (matriz[row-1][col]==0) {
+                matriz[row-1][col]=matriz[row][col];
+                matriz[row][col]=0;
+                break;
+              }
+        }
+      }
+    }
+}
+}
 
 #endif /* mapa_h */

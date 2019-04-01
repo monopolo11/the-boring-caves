@@ -127,6 +127,10 @@ void movecheck(int dir){
   }
   switch (matriz[deltarow][deltacol]) {
     case 0:
+    if (cueva==1) {
+      PlaySound("PASO2", NULL, SND_ASYNC | SND_RESOURCE);
+    }
+      PlaySound("PASO1", NULL, SND_ASYNC | SND_RESOURCE);
       matriz[actrow][actcol]=0;
       matriz[deltarow][deltacol]=2;
       //makevis();
@@ -145,6 +149,7 @@ void movecheck(int dir){
       break;
     case 6:
       if (player.espada==1) {
+        PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         movecheck(dir);
@@ -172,6 +177,7 @@ void movecheck(int dir){
               break;
     case 9:
           if (player.llave==1) {
+            PlaySound("PUERTA", NULL, SND_ASYNC | SND_RESOURCE);
             matriz[actrow][actcol]=0;
             nivel=nivel+1;
             cambiomapa();
@@ -185,6 +191,7 @@ void movecheck(int dir){
           }
       case 12:
       if (player.espada==1&&player.armadura==1) {
+        PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         movecheck(dir);
@@ -212,6 +219,7 @@ void movecheck(int dir){
     case 21:
     //matriz[actrow][actcol]=0;
     if(init==0){mapasave();}
+        PlaySound("ESCALERA1", NULL, SND_ASYNC | SND_RESOURCE);
         cueva=1;
         llavetemp=1;
           //if(init==0){mapasave();}
@@ -221,6 +229,7 @@ void movecheck(int dir){
     case 22:
     //matriz[actrow][actcol]=0;
     if(init==0){mapasave();}
+          PlaySound("ESCALERA2", NULL, SND_ASYNC | SND_RESOURCE);
           cueva=0;
           //  if(init==0){mapasave();}
           cambiomapa();

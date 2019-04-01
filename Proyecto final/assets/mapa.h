@@ -332,7 +332,7 @@ void printinicio(){
   system("cls");
   hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleTextAttribute(hConsole, 7);
-  printf("Bienvenido a este juego\n");
+  printf("Bienvenido a The Boring Caves\n");
   printf("Instrucciones:\n");
   printf("Tus movimientos seran con ");
   SetConsoleTextAttribute(hConsole, 2);

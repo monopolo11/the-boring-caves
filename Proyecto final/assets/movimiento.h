@@ -203,7 +203,7 @@ void movecheck(int dir){
       }else{
               player.vidas--;
               printmap();
-              PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
+              PlaySound("DRAGON", NULL, SND_ASYNC | SND_RESOURCE);
               SetConsoleTextAttribute(hConsole, 4);
               printf("Un Dragon!! Corre Perra! Corre!.\n");
               break;}

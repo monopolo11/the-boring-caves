@@ -12,7 +12,7 @@ build:
   #   - apt update && apt -y install make autoconf 
   script: 
     - mkdir .build
-    - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -c main.cpp -o main.o -m32
+    - x86_64-w64-mingw32-gcc -c  Proyecto\ final/main.c -o main.o -m32
     - cp main.o .build
     - x86_64-w64-mingw32-windres -i Proyecto\ final/sounds.rc -o sounds.res -F pe-i386 -O coff
     - cp sounds.res .build

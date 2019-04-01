@@ -81,7 +81,7 @@ int main() {
       case 1:
         system("cls");
         printf("Has terminado el nivel");
-        printf("Presiona cualquier tecla para continuar.");
+        printf("\nPresiona cualquier tecla para continuar.");
         getch();
         break;
       case 2:

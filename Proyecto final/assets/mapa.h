@@ -130,16 +130,14 @@ void cambiomapa(){
         break;
     case 2:
     mapa2[32][0]=2;
-    mapa2[32][1]=2;
+    mapa2[32][1]=1;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           matriz[row][col]=mapa2[row][col];
         }
       }
-      mapa2[32][0]=2;
-      mapa2[32][1]=2;
       actrow = mapa2[32][0];
-      actcol = mapa1[32][1];
+      actcol = mapa2[32][1];
       //carga matriz de visibilidad
       for (row=0; row!=32; row++) {
           for (col=0; col!=32; col++) {

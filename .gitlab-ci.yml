@@ -11,10 +11,14 @@ build:
   # before_script: 
   #   - apt update && apt -y install make autoconf 
   script: 
-    - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -lwinmm -o /var/www/html/juego/juego.exe
-  artifacts:
-    paths:
-      - /var/www/html/juego/juego.exe
+    - mkdir .build
+    - x86_64-w64-mingw32-gcc Proyecto\ final/main.c -c main.cpp -o main.o -m32
+    - cp main.o .build
+    - x86_64-w64-mingw32-windres -i Proyecto\ final/sounds.rc -o sounds.res -F pe-i386 -O coff
+    - cp sounds.res .build
+    - cd .build
+    - x86_64-w64-mingw32-gcc main.o sounds.res -o juego.exe -static-libgcc -lwinmm -m32
+    - cp juego.exe /var/www/html/juego
   # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
   # cache:
   #   paths:

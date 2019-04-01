@@ -153,6 +153,7 @@ void movecheck(int dir){
       }else{
         player.vidas--;
         printmap();
+        PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
         SetConsoleTextAttribute(hConsole, 4);
         printf("Necesitas una espada.\n");
         break;
@@ -166,6 +167,7 @@ void movecheck(int dir){
               actcol=deltacol;
               actrow=deltarow;
               player.espada = 1;
+              PlaySound("ESPADA1", NULL, SND_ASYNC | SND_RESOURCE);
               printmap();
               break;
     case 9:
@@ -193,6 +195,7 @@ void movecheck(int dir){
       }else{
               player.vidas--;
               printmap();
+              PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
               SetConsoleTextAttribute(hConsole, 4);
               printf("Un Dragon!! Corre Perra! Corre!.\n");
               break;}
@@ -203,6 +206,7 @@ void movecheck(int dir){
         actcol=deltacol;
         actrow=deltarow;
         player.armadura = 1;
+        PlaySound("ARMADURA1", NULL, SND_ASYNC | SND_RESOURCE);
         printmap();
         break;
     case 21:

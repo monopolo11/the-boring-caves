@@ -87,14 +87,14 @@ int main() {
       case 2:
         system("cls");
         printf("Perdistes HDP");
-        PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
-        printf("Presiona cualquier tecla para continuar.");
+        PlaySound("GAMEOVER", NULL, SND_ASYNC | SND_RESOURCE);
+        printf("\nPresiona cualquier tecla para continuar.");
         getch();
         break;
       case 3:
         system("cls");
         printf("El usuario cerro el programa");
-        printf("Presiona cualquier tecla para continuar.");
+        printf("\nPresiona cualquier tecla para continuar.");
         getch();
         break;
     }

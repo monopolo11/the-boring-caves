@@ -1,2 +1,5 @@
 OOF WAVE "sounds/oof.wav"
 MAIN WAVE "sounds/main.wav"
+ARMADURA1 WAVE "sounds/armadura1.wav"
+ESPADA1 WAVE "sounds/espada1.wav"
+GAMEOVER WAVE "sounds/gameover.wav"

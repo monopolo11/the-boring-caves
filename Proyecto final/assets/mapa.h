@@ -375,10 +375,11 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 14);
   printf("E ");
   SetConsoleTextAttribute(hConsole, 7);printf("Escaleras\n");
+  if(init!=0){sleep(5);}
   printf("\nPresiona cualquier tecla para continuar...");
   getch();
   printmap();
-    PlaySound(NULL,NULL,SND_PURGE);
+  PlaySound(NULL,NULL,SND_PURGE);
 }
 
 

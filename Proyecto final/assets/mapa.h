@@ -330,7 +330,7 @@ if (player.vidas==0) {
 }
 }
 void printinicio(){
-  PlaySound("sounds/main.wav", NULL, SND_ASYNC | SND_FILENAME);
+  PlaySound("MAIN", NULL, SND_ASYNC | SND_RESOURCE);
   system("cls");
   hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleTextAttribute(hConsole, 7);

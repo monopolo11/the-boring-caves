@@ -87,7 +87,7 @@ int main() {
       case 2:
         system("cls");
         printf("Perdistes HDP");
-        PlaySound("sounds/oof.wav", NULL, SND_ASYNC | SND_FILENAME);
+        PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
         printf("Presiona cualquier tecla para continuar.");
         getch();
         break;

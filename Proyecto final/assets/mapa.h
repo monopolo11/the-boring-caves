@@ -312,7 +312,7 @@ SetConsoleTextAttribute(hConsole, 10);
 printf("Vidas: %d\n",player.vidas);
 printf("Antorchas: %d \n",player.antorcha);
 SetConsoleTextAttribute(hConsole, 6);
-printf("El Jugador tien: %d monedas\n",player.monedas);
+printf("El Jugador tiene: %d monedas\n",player.monedas);
 if (player.llave==1) {
   SetConsoleTextAttribute(hConsole, 6);
   printf("El Jugador tiene la llave\n");
@@ -358,13 +358,13 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 7);printf("Tu avatar\n");
   SetConsoleTextAttribute(hConsole, 6);
   printf("y ");
-  SetConsoleTextAttribute(hConsole, 7);printf("Una player.llave, la necesitaras para pasar por la puerta\n");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una llave, la necesitaras para pasar por la puerta\n");
   SetConsoleTextAttribute(hConsole, 4);
   printf("F ");
   SetConsoleTextAttribute(hConsole, 7);printf("Un enemigo\n");
   SetConsoleTextAttribute(hConsole, 4);
   printf("+ ");
-  SetConsoleTextAttribute(hConsole, 7);printf("Una player.espada, la necesitaras para pasar por los enemigos\n");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una espada, la necesitaras para pasar por los enemigos\n");
   SetConsoleTextAttribute(hConsole, 4);
   printf("A ");
   SetConsoleTextAttribute(hConsole, 7);printf("Una armadura, la necesitaras para pasar por los enemigos\n");

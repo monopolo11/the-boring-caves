@@ -68,6 +68,7 @@ void makevis(){
 }
 void placetorch(){
   if(player.antorcha!=0){
+  PlaySound("CLICK", NULL, SND_ASYNC | SND_RESOURCE);
   player.antorcha--;
   printmap();
   matrizvis[actrow][actcol-2]=2;

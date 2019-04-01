@@ -25,7 +25,7 @@ Jugador1 player;
 #include "assets/movimiento.h"
 
 int main() {
-  SetConsoleTitle("The Boring Cave");
+  SetConsoleTitle("The Boring Caves");
   player.vidas = 3;
   player.antorcha = 5;
   player.estado='O';

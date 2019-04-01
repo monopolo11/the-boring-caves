@@ -45,6 +45,6 @@ void tienda(){
         tiendaent=4;
         break;
     }
-}
+}tiendaent = 0;
 printmap();
 }

@@ -16,21 +16,25 @@
 //#define magenta "\x1b[35m"
 //#define cyan     "\x1b[36m"
 //#define reset   "\x1b[0m"
+//se establece el handle para colores
 HANDLE  hConsole;
-
+//se establecen las variables
 int llavetemp=0;
 int nivel = 1;
 int cueva = 0;
 
 //Habilita o desahabilita que se oculte el mapa
 int matrizvisset = 1;
+//se cambia la variable de inisializacion del programa
 int init = 1;
 int col,row;
 int actrow;
 int actcol;
 
+//esta funcion guarda los cambios de la matriz a su matriz original
 void mapasave(){
   if(cueva!=1){
+    //si no es cueva
   switch (nivel) {
     case 1:
     mapa1[32][0]=actrow;
@@ -69,6 +73,7 @@ void mapasave(){
         break;
   }
 }else{
+  //si es cueva
   switch (nivel) {
     case 1:
     mapa1_1[32][0]=actrow;
@@ -107,9 +112,10 @@ void mapasave(){
   }
 }
 }
-
+//esta funcion carga la matriz del mapa a la amtriz que se utiliza durante el juego (matriz)
 void cambiomapa(){
   if(cueva!=1){
+    //si no es cueva
     if(llavetemp!=1){
     player.llave = 0;}
   switch (nivel) {
@@ -150,6 +156,7 @@ void cambiomapa(){
         break;
   }
 }else{
+  //si es cueva
   switch (nivel) {
     case 1:
     for (row=0; row!=32; row++) {
@@ -187,7 +194,7 @@ void cambiomapa(){
   }
 }
 }
-
+//esta funcion imprime el mapa basado en su valor en matriz SetConsoleTextAttribute(hConsole, 2); cambia el color del texto
 void printmapchar(int valormat){
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   switch (valormat) {
@@ -195,23 +202,23 @@ void printmapchar(int valormat){
           printf("  ");
           break;
       case 1:
-       SetConsoleTextAttribute(hConsole, 2);
+          SetConsoleTextAttribute(hConsole, 2);
           printf("* ");
           break;
       case 2:
-       SetConsoleTextAttribute(hConsole, 7);
+          SetConsoleTextAttribute(hConsole, 7);
           printf("%c ",player.estado);
           break;
       case 3:
-           SetConsoleTextAttribute(hConsole, 8);
-              printf("* ");
-              break;
+          SetConsoleTextAttribute(hConsole, 8);
+          printf("* ");
+          break;
       case 5:
-       SetConsoleTextAttribute(hConsole, 6);
+        SetConsoleTextAttribute(hConsole, 6);
         printf("y ");
         break;
       case 6:
-         SetConsoleTextAttribute(hConsole, 4);
+          SetConsoleTextAttribute(hConsole, 4);
           printf("F ");
           break;
       case 7:
@@ -252,27 +259,11 @@ void printmapchar(int valormat){
           break;
 }
 }
-
+//esta funcion imprime el mapa
 void printmap(){
 int act;
 int cont = 0;
-//while (cont!=10){
-//  printf("\n");
-//  cont++;
-//}
-//cont=0;
-/*
-item - Valor en matriz - representacion grafica
-Camino -    0             -
-Muros -     1             - *
-player.estado -   2             - 0
-player.llave -     5             - y
-Puerta -    9             - h
-Borde Horizontal - 10     - -
-Borde Vertical - 10     - |
-
-*/
-
+//estado del jugador, cual es su avatar
   switch (player.vidas) {
     case 3:
       player.estado='O';
@@ -287,7 +278,9 @@ Borde Vertical - 10     - |
       player.estado='Q';
       break;
     }
+//se limpia la pantalla
 system("cls");
+//en este for se recorre toda la matriz y se imprime llamando a printmapchar segun el valor de la matriz en esa pocision
 for (row=0; row!=32; row++) {
     printf("\n");
     for (col=0; col!=32; col++) {
@@ -301,6 +294,7 @@ for (row=0; row!=32; row++) {
   }
 }
 }
+//se imprimen los textos fijos como vidas, espada monedas etc.
 SetConsoleTextAttribute(hConsole, 7);
 printf("\nNivel: %d \n",nivel);
 if(cueva==1){
@@ -329,6 +323,7 @@ if (player.vidas==0) {
   juegofin=2;
 }
 }
+//impresion de la pantalla de inicio y de informacion
 void printinicio(){
   PlaySound("MAIN", NULL, SND_ASYNC | SND_RESOURCE);
   system("cls");
@@ -377,17 +372,20 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 14);
   printf("E ");
   SetConsoleTextAttribute(hConsole, 7);printf("Escaleras\n");
+  //tiempo de espera de la primera corrida del programa
   if(init!=0){sleep(5);}
   printf("\nPresiona cualquier tecla para continuar...");
   getch();
   printmap();
   PlaySound(NULL,NULL,SND_PURGE);
 }
-
+//variable que mueve enemigos
 void moveEnemy(){
   int movedelta = 0;
+  //seed y variable random
   time_t t;
   srand((unsigned) time(&t));
+  //por cada valor en matriz se verifica que sea un enemigo, si lo es se intentara mover basado en elk movedelta aleatoirio si no intntara otra direccion
   for (row=0; row!=32; row++) {
       for (col=0; col!=32; col++) {
         if(matriz[row][col]==6||matriz[row][col]==12){

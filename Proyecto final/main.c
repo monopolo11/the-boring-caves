@@ -5,7 +5,10 @@
 //  Created by Bernardo Ruiz & Rodrigo Alvarez on 25/3/19.
 //  Copyright © 2019 Bernardo Ruiz & Rodrigo Alvarez. All rights reserved.
 //
+
+//estado del juego
 int juegofin = 0;
+//estructura de datos del jugador
 typedef struct Jugador1 {
    int vidas;
    int antorcha;
@@ -15,6 +18,7 @@ typedef struct Jugador1 {
    int armadura;
    int monedas;
 } Jugador1;
+//definicion de varviable del jugador
 Jugador1 player;
 #include <time.h>
 #include <windows.h>
@@ -28,55 +32,72 @@ Jugador1 player;
 #include "assets/tienda.h"
 
 int main() {
+  //nombre de la ventana
   SetConsoleTitle("The Boring Caves");
+  //se establecen valores iniciales
   player.monedas = 10;
   player.vidas = 3;
   player.antorcha = 5;
   player.estado='O';
+  //se establecen la columna y filla actual del mapa
   actrow = mapa1[32][0];
   actcol = mapa1[32][1];
+  //se establece el tamano de la ventan
   system("MODE 80,45");
+  //se igualana las deltas de movimiento a la fila y columna actual
   deltarow = actrow;
   deltacol = actcol;
+  //se carga el mapa 1
   cambiomapa(1);
+  //se imprime la pantalla de inicio
   printinicio();
   init = 0;
     char ch = 0;
     int cont = 0;
+    //ciclo del juego
     while (juegofin==0) {
       ch = getch();
       switch (ch) {
+        //se presiona w
         case 119:
           moverArr();
           cont++;
           break;
+        //se presiona s
         case 115:
           moverAba();
           cont++;
           break;
+        //se presiona a
         case 97:
           moverIzq();
           cont++;
           break;
+        //se presiona d
         case 100:
             moverDer();
             cont++;
             break;
+        //se presiona q
         case 113:
             juegofin=3;
             break;
+        //se presiona r
         case 114:
             placetorch();
             break;
+        //se presiona i
         case 105:
             printinicio();
             break;
+        //se presiona l
         case 108:
         if (matrizvisset==1) {
           matrizvisset = 0;
         }else{matrizvisset=1;}
         printmap();
             break;
+        //se presiona u
         case 117:
           tienda();
           break;
@@ -85,6 +106,7 @@ int main() {
           break;
     }
     }
+    //cuando se sale del ciclo se definie 
     switch (juegofin) {
       case 1:
         system("cls");

@@ -106,7 +106,7 @@ int main() {
           break;
     }
     }
-    //cuando se sale del ciclo se definie 
+    //cuando se sale del ciclo se define cual fue la razon de salida
     switch (juegofin) {
       case 1:
         system("cls");

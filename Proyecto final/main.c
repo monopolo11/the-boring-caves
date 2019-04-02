@@ -105,7 +105,7 @@ int main() {
           printf("Esa tecla no hace ni madres\n");
           break;
     }
-    }
+}
     //cuando se sale del ciclo se define cual fue la razon de salida
     switch (juegofin) {
       case 1:

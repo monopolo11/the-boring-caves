@@ -1,9 +1,11 @@
 #ifndef movimiento_h
 #define movimiento_h
+//definicion de variables delta
   int deltarow = 0;
   int deltacol = 0;
 void makevis(){
-  //quitar visibilidad
+  //esta funcion lidia con los cambios a la amtriz de visibilidad
+  //quitar visibilidad en el area del jugador
   if(matrizvis[actrow][actcol-3]!=2){matrizvis[actrow][actcol-3]=0;};
   if(matrizvis[actrow][actcol+3]!=2){matrizvis[actrow][actcol+3]=0;};
 
@@ -34,7 +36,7 @@ void makevis(){
   if(matrizvis[actrow+3][actcol+1]!=2){matrizvis[actrow+3][actcol+1]=0;};
   if(matrizvis[actrow+3][actcol+2]!=2){matrizvis[actrow+3][actcol+2]=0;};
   if(matrizvis[actrow+3][actcol+3]!=2){matrizvis[actrow+3][actcol+3]=0;};
-  //hacer visible
+  //hacer visible cuando avanza el jugador
   if(matrizvis[actrow][actcol-2]!=2){matrizvis[actrow][actcol-2]=1;};
   if(matrizvis[actrow][actcol+2]!=2){matrizvis[actrow][actcol+2]=1;};
 
@@ -67,6 +69,7 @@ void makevis(){
 
 }
 void placetorch(){
+  //pone una antorcha si se tiene
   if(player.antorcha!=0){
   PlaySound("CLICK", NULL, SND_ASYNC | SND_RESOURCE);
   player.antorcha--;
@@ -107,8 +110,9 @@ void placetorch(){
 }else{SetConsoleTextAttribute(hConsole, 4);printf("No tienes antorchas\n");}}
 
 void movecheck(int dir){
-  moveEnemy();
+  //cambia la matriz de visibilidad
   makevis();
+  //cambia el delta de cada variable para definir hacia donde se quiere caminar
   switch (dir) {
     case 0:
       deltarow=deltarow-1;
@@ -127,34 +131,36 @@ void movecheck(int dir){
         deltarow = actrow;
         break;
   }
+  //se verifica que el movimiento sea posible y se toman las acciones que sean requeridas
   switch (matriz[deltarow][deltacol]) {
     case 0:
     if (cueva==1) {
+      //reproduce sonido si esta en cueva
       PlaySound("PASO2", NULL, SND_ASYNC | SND_RESOURCE);
     }else{
+      //repdroduce sonido si no esta en cueva
       PlaySound("PASO1", NULL, SND_ASYNC | SND_RESOURCE);}
       matriz[actrow][actcol]=0;
       matriz[deltarow][deltacol]=2;
-      //makevis();
       actcol=deltacol;
       actrow=deltarow;
       printmap();
       break;
     case 5:
+    //si es llave cambia la variable del jugador
     matriz[actrow][actcol]=0;
     matriz[deltarow][deltacol]=2;
-      //makevis();
       actcol=deltacol;
       actrow=deltarow;
       player.llave = 1;
       printmap();
       break;
     case 6:
+    //si es oso y tiene la espada lo elimina de la matriz y suma una vida
       if (player.espada==1) {
         PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
-        player.monedas=player.monedas+20;
         movecheck(dir);
         printmap();
         break;
@@ -197,7 +203,6 @@ void movecheck(int dir){
         PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
-        player.monedas=player.monedas+100;
         movecheck(dir);
         printmap();
         SetConsoleTextAttribute(hConsole, 4);
@@ -206,7 +211,7 @@ void movecheck(int dir){
       }else{
               player.vidas--;
               printmap();
-              PlaySound("DRAGON", NULL, SND_ASYNC | SND_RESOURCE);
+              PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
               SetConsoleTextAttribute(hConsole, 4);
               printf("Un Dragon!! Corre Perra! Corre!.\n");
               break;}

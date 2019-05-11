@@ -17,6 +17,9 @@ typedef struct Jugador1 {
    char estado;
    int armadura;
    int monedas;
+   int monedastotal;
+   int score;
+   char nombre[100];
 } Jugador1;
 //definicion de varviable del jugador
 Jugador1 player;
@@ -24,21 +27,27 @@ Jugador1 player;
 #include <windows.h>
 #include <conio.h>
 #include <stdio.h>
+#include <strings.h>
 #include <stdlib.h>
 #include <mmsystem.h>
 #include "assets/mapas.h"
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
 #include "assets/tienda.h"
+#include "assets/score.h"
 
 int main() {
   //nombre de la ventana
   SetConsoleTitle("The Boring Caves");
   //se establecen valores iniciales
   player.monedas = 10;
+  player.monedastotal = 10;
   player.vidas = 3;
   player.antorcha = 5;
   player.estado='O';
+  printf("Introduce tu nombre de usuario: \n");
+  fflush(stdin);
+  scanf("%s", &player.nombre);
   //se establecen la columna y filla actual del mapa
   actrow = mapa1[32][0];
   actcol = mapa1[32][1];
@@ -101,6 +110,9 @@ int main() {
         case 117:
           tienda();
           break;
+        case 110:
+          juegofin=1;
+          break;
         default:
           printf("Esa tecla no hace ni madres\n");
           break;
@@ -112,6 +124,7 @@ int main() {
         system("cls");
         printf("Has terminado el nivel");
         printf("\nPresiona cualquier tecla para continuar.");
+        registerscore();
         getch();
         break;
       case 2:
@@ -119,6 +132,7 @@ int main() {
         printf("Perdistes HDP");
         PlaySound("GAMEOVER", NULL, SND_ASYNC | SND_RESOURCE);
         printf("\nPresiona cualquier tecla para continuar.");
+        registerscore();
         getch();
         break;
       case 3:

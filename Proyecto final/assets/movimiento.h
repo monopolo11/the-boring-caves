@@ -162,6 +162,7 @@ void movecheck(int dir){
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         player.monedas=player.monedas+20;
+        player.monedastotal=player.monedastotal+20;
         movecheck(dir);
         printmap();
         break;
@@ -207,6 +208,7 @@ void movecheck(int dir){
         matriz[deltarow][deltacol]=0;
         player.vidas++;
         player.monedas=player.monedas+100;
+        player.monedastotal=player.monedastotal+100;
         movecheck(dir);
         printmap();
         SetConsoleTextAttribute(hConsole, 4);

@@ -306,18 +306,18 @@ SetConsoleTextAttribute(hConsole, 10);
 printf("Vidas: %d\n",player.vidas);
 printf("Antorchas: %d \n",player.antorcha);
 SetConsoleTextAttribute(hConsole, 6);
-printf("El Jugador tiene: %d monedas\n",player.monedas);
+printf("%s tiene: %d monedas\n",player.nombre,player.monedas);
 if (player.llave==1) {
   SetConsoleTextAttribute(hConsole, 6);
-  printf("El Jugador tiene la llave\n");
+  printf("%s tiene la llave\n",player.nombre);
 }
 if (player.espada==1) {
   SetConsoleTextAttribute(hConsole, 4);
-  printf("El Jugador tiene la espada\n");
+  printf("%s tiene la espada\n",player.nombre);
 }
 if (player.armadura==1) {
   SetConsoleTextAttribute(hConsole, 4);
-  printf("El Jugador tiene la armadura\n");
+  printf("$s tiene la armadura\n",player.nombre);
 }
 if (player.vidas==0) {
   juegofin=2;

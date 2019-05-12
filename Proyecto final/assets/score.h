@@ -12,4 +12,5 @@ strcat(score,score2);
 strcat(url,name);
 strcat(url,score);
 ShellExecute(NULL, "open", url, NULL, NULL, SW_SHOWNORMAL);
+printf("%s\n",url );
 }

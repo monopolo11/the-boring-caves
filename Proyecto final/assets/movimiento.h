@@ -1,8 +1,21 @@
 #ifndef movimiento_h
 #define movimiento_h
-//declaraciond e variables delta
-  int deltarow = 0;
-  int deltacol = 0;
+
+void startvis(){
+  for (row=0; row!=32; row++) {
+      for (col=0; col!=32; col++) {
+        if(matriz[row][col]==11||matriz[row][col]==10){
+        matrizvis[row][col]=2;
+      }
+      if(matriz[row][col]==2){
+      matrizvis[row][col]=1;
+      makevis();
+    }
+      }
+    }
+    makevis();
+}
+
 void makevis(){
   //quitar visibilidad al rededor del jugador
   if(matrizvis[actrow][actcol-3]!=2){matrizvis[actrow][actcol-3]=0;};
@@ -35,7 +48,7 @@ void makevis(){
   if(matrizvis[actrow+3][actcol+1]!=2){matrizvis[actrow+3][actcol+1]=0;};
   if(matrizvis[actrow+3][actcol+2]!=2){matrizvis[actrow+3][actcol+2]=0;};
   if(matrizvis[actrow+3][actcol+3]!=2){matrizvis[actrow+3][actcol+3]=0;};
-  //hacer visible al rededor del jugador
+  //hacer visible alrededor del jugador
   if(matrizvis[actrow][actcol-2]!=2){matrizvis[actrow][actcol-2]=1;};
   if(matrizvis[actrow][actcol+2]!=2){matrizvis[actrow][actcol+2]=1;};
 
@@ -242,21 +255,61 @@ void movecheck(int dir){
         break;
       //escalera que sube
       case 22:
-          if(init==0){mapasave();}
-          PlaySound("ESCALERA2", NULL, SND_ASYNC | SND_RESOURCE);
-          cueva=0;
-          cambiomapa();
+        if(init==0){mapasave();}
+        PlaySound("ESCALERA2", NULL, SND_ASYNC | SND_RESOURCE);
+        cueva=0;
+        cambiomapa();
+        printmap();
+        llavetemp = 0;
+        break;
+      //salida secreta
+      case 24:
+        juegofin=1;
+        break;
+      case 66:
+        player.vidas--;
+        PlaySound("OOF", NULL, SND_ASYNC | SND_RESOURCE);
+        printmap();
+        break;
+      case 43:
+        if (player.espada==2&&player.armadura==2) {
+          PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
+          matriz[deltarow][deltacol]=0;
+          player.vidas++;
+          player.monedas=player.monedas+200;
+          player.monedastotal=player.monedastotal+200;
+          movecheck(dir);
           printmap();
-          llavetemp = 0;
-          break;
-    //salida secreta
-    case 24:
-          juegofin=1;
-                break;
-    default:
-      printmap();
-      printf("Movimiento invalido.\n");
-      break;
+            break;
+        }else{
+                player.vidas--;
+                printmap();
+                PlaySound("DRAGON", NULL, SND_ASYNC | SND_RESOURCE);
+                SetConsoleTextAttribute(hConsole, 4);
+                printf("Un Golem Necesitas armadura y espada nivel 2\n");
+                break;}
+        case 45:
+          if (player.espada==3&&player.armadura==3) {
+            PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
+            matriz[deltarow][deltacol]=0;
+            player.vidas++;
+            player.monedas=player.monedas+1000;
+            player.monedastotal=player.monedastotal+1000;
+            movecheck(dir);
+            printmap();
+            break;
+          }else{
+              player.vidas--;
+              printmap();
+              PlaySound("DRAGON", NULL, SND_ASYNC | SND_RESOURCE);
+              SetConsoleTextAttribute(hConsole, 4);
+              printf("Cuidado con Japy\n");
+              break;}
+      default:
+        printmap();
+        printf("Movimiento invalido.\n");
+        break;
+
   }
 }
 //funciones que llaman el movimiento

@@ -69,8 +69,21 @@ void mapasave(){
         }
         break;
       case 3:
-        juegofin=1;
-        break;
+      mapa3[32][0]=actrow;
+      mapa3[32][1]=actcol;
+      mapa3[actrow][actcol]=2;
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            mapa3[row][col]=matriz[row][col];
+          }
+        }
+        //guarda matris de visibilidad
+        for (row=0; row!=32; row++) {
+            for (col=0; col!=32; col++) {
+              mapa3_vis[row][col]=matrizvis[row][col];
+            }
+          }
+          break;
   }
 }else{
   //si es cueva
@@ -114,6 +127,11 @@ void mapasave(){
 }
 //esta funcion carga la matriz del mapa a la amtriz que se utiliza durante el juego (matriz)
 void cambiomapa(){
+  for (row=0; row!=32; row++) {
+      for (col=0; col!=32; col++) {
+        matriz[row][col]=0;
+      }
+    }
   if(cueva!=1){
     //si no es cueva
     if(llavetemp!=1){
@@ -133,10 +151,9 @@ void cambiomapa(){
               matrizvis[row][col]=mapa1_vis[row][col];
             }
           }
+          startvis();
         break;
     case 2:
-    mapa2[32][0]=2;
-    mapa2[32][1]=1;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           matriz[row][col]=mapa2[row][col];
@@ -144,16 +161,70 @@ void cambiomapa(){
       }
       actrow = mapa2[32][0];
       actcol = mapa2[32][1];
+      deltarow=actrow;
+      deltacol=actcol;
       //carga matriz de visibilidad
       for (row=0; row!=32; row++) {
           for (col=0; col!=32; col++) {
-            matrizvis[row][col]=mapa2_vis[row][col];
+            matrizvis[row][col]=0;
           }
         }
+        startvis();
         break;
       case 3:
-        juegofin=1;
-        break;
+      for (row=0; row!=32; row++) {
+          for (col=0; col!=32; col++) {
+            matriz[row][col]=mapa3[row][col];
+          }
+        }
+        actrow = mapa3[32][0];
+        actcol = mapa3[32][1];
+        deltarow=actrow;
+        deltacol=actcol;
+        //carga matriz de visibilidad
+        for (row=0; row!=32; row++) {
+            for (col=0; col!=32; col++) {
+              matrizvis[row][col]=0;
+            }
+          }
+          startvis();
+          break;
+        case 4:
+          for (row=0; row!=32; row++) {
+              for (col=0; col!=32; col++) {
+                matriz[row][col]=mapa4[row][col];
+              }
+            }
+            actrow = mapa4[32][0];
+            actcol = mapa4[32][1];
+            deltarow=actrow;
+            deltacol=actcol;
+            //carga matriz de visibilidad
+            for (row=0; row!=32; row++) {
+                for (col=0; col!=32; col++) {
+                  matrizvis[row][col]=0;
+                }
+              }
+              startvis();
+              break;
+          case 5:
+                for (row=0; row!=32; row++) {
+                    for (col=0; col!=32; col++) {
+                      matriz[row][col]=mapa5[row][col];
+                    }
+                  }
+                  actrow = mapa5[32][0];
+                  actcol = mapa5[32][1];
+                  deltarow=actrow;
+                  deltacol=actcol;
+                  //carga matriz de visibilidad
+                  for (row=0; row!=32; row++) {
+                      for (col=0; col!=32; col++) {
+                        matrizvis[row][col]=2;
+                      }
+                    }
+                    startvis();
+                    break;
   }
 }else{
   //si es cueva
@@ -172,6 +243,7 @@ void cambiomapa(){
             matrizvis[row][col]=mapa1_1_vis[row][col];
           }
         }
+        startvis();
         break;
     case 2:
     for (row=0; row!=32; row++) {
@@ -187,6 +259,7 @@ void cambiomapa(){
             matrizvis[row][col]=mapa1_1_vis[row][col];
           }
         }
+        startvis();
         break;
       case 3:
         juegofin=1;
@@ -257,6 +330,22 @@ void printmapchar(int valormat){
           SetConsoleTextAttribute(hConsole, 2);
           printf("* ");
           break;
+      case 66:
+          SetConsoleTextAttribute(hConsole, 4);
+          printf("X ");
+          break;
+      case 43:
+          SetConsoleTextAttribute(hConsole, 10);
+          printf("G ");
+          break;
+      case 31:
+          SetConsoleTextAttribute(hConsole, 4);
+          printf("* ");
+          break;
+      case 45:
+          SetConsoleTextAttribute(hConsole, 4);
+          printf("J ");
+          break;
 }
 }
 //esta funcion imprime el mapa
@@ -319,6 +408,10 @@ if (player.armadura==1) {
   SetConsoleTextAttribute(hConsole, 4);
   printf("$s tiene la armadura\n",player.nombre);
 }
+printf("col: %d\n",actcol);
+printf("row: %d\n",actrow);
+printf("deltacol: %d\n",deltacol);
+printf("deltarow: %d\n",deltarow);
 if (player.vidas==0) {
   juegofin=2;
 }
@@ -373,7 +466,7 @@ void printinicio(){
   printf("E ");
   SetConsoleTextAttribute(hConsole, 7);printf("Escaleras\n");
   //tiempo de espera de la primera corrida del programa
-  if(init!=0){sleep(5);}
+  //if(init!=0){sleep(5);}
   printf("\nPresiona cualquier tecla para continuar...");
   getch();
   printmap();

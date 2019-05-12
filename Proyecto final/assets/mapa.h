@@ -408,10 +408,6 @@ if (player.armadura==1) {
   SetConsoleTextAttribute(hConsole, 4);
   printf("$s tiene la armadura\n",player.nombre);
 }
-printf("col: %d\n",actcol);
-printf("row: %d\n",actrow);
-printf("deltacol: %d\n",deltacol);
-printf("deltarow: %d\n",deltarow);
 if (player.vidas==0) {
   juegofin=2;
 }
@@ -466,7 +462,7 @@ void printinicio(){
   printf("E ");
   SetConsoleTextAttribute(hConsole, 7);printf("Escaleras\n");
   //tiempo de espera de la primera corrida del programa
-  //if(init!=0){sleep(5);}
+  if(init!=0){sleep(5);}
   printf("\nPresiona cualquier tecla para continuar...");
   getch();
   printmap();

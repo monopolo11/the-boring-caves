@@ -17,5 +17,4 @@ strcat(url,name);
 strcat(url,score);
 strcat(url,gamestate);
 ShellExecute(NULL, "open", url, NULL, NULL, SW_SHOWNORMAL);
-printf("%s\n",url );
 }

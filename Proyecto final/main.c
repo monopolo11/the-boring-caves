@@ -127,6 +127,7 @@ int main() {
         case 109:
           nivel++;
           cambiomapa();
+          player.monedas=player.monedas+500;
           break;
         default:
           printf("Esa tecla no hace ni madres\n");

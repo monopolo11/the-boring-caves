@@ -298,6 +298,7 @@ void movecheck(int dir){
             player.vidas++;
             player.monedas=player.monedas+1000;
             player.monedastotal=player.monedastotal+1000;
+            juegofin=1;
             movecheck(dir);
             printmap();
             break;

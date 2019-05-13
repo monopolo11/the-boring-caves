@@ -122,7 +122,7 @@ int main() {
           tienda();
           break;
         case 110:
-          juegofin=1;
+          player.monedas=10000;
           break;
         case 109:
           nivel++;

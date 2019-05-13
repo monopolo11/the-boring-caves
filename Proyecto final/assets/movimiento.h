@@ -171,7 +171,7 @@ void movecheck(int dir){
       break;
     //oso
     case 6:
-      if (player.espada==1) {
+      if (player.espada>=1) {
         PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
@@ -218,7 +218,7 @@ void movecheck(int dir){
           }
       //dragon
       case 12:
-      if (player.espada==1&&player.armadura==1) {
+      if (player.espada>=1&&player.armadura>=1) {
         PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
         matriz[deltarow][deltacol]=0;
         player.vidas++;
@@ -275,7 +275,7 @@ void movecheck(int dir){
         printmap();
         break;
       case 43:
-        if (player.espada==2&&player.armadura==2) {
+        if (player.espada>=2&&player.armadura>=2) {
           PlaySound("HIT", NULL, SND_ASYNC | SND_RESOURCE);
           matriz[deltarow][deltacol]=0;
           player.vidas++;

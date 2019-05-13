@@ -384,29 +384,36 @@ for (row=0; row!=32; row++) {
 }
 }
 //se imprimen los textos fijos como vidas, espada monedas etc.
-SetConsoleTextAttribute(hConsole, 7);
-printf("\nNivel: %d \n",nivel);
-if(cueva==1){
-  SetConsoleTextAttribute(hConsole, 7);
-  printf("Cueva: Si \n");}else{SetConsoleTextAttribute(hConsole, 7);
-  printf("Cueva: No \n");}
-  SetConsoleTextAttribute(hConsole, 10);
+if(nivel!=5){
+  if(cueva==1){
+    SetConsoleTextAttribute(hConsole, 7);
+    printf("\nCueva Nivel: %d \n",nivel);}
+  else{
+    SetConsoleTextAttribute(hConsole, 7);
+    printf("\nNivel: %d \n",nivel);}
+  }
+  else {SetConsoleTextAttribute(hConsole, 4);
+    printf("\nNivel: Salon T-109, dia de entrega de proyecto \n",nivel);
+}
+
 SetConsoleTextAttribute(hConsole, 10);
 printf("Vidas: %d\n",player.vidas);
 printf("Antorchas: %d \n",player.antorcha);
 SetConsoleTextAttribute(hConsole, 6);
 printf("%s tiene: %d monedas\n",player.nombre,player.monedas);
+SetConsoleTextAttribute(hConsole, 6);
+printf("Score: %d\n",player.score);
 if (player.llave==1) {
   SetConsoleTextAttribute(hConsole, 6);
   printf("%s tiene la llave\n",player.nombre);
 }
-if (player.espada==1) {
+if (player.espada>=1) {
   SetConsoleTextAttribute(hConsole, 4);
-  printf("%s tiene la espada\n",player.nombre);
+  printf("%s tiene la espada nivel %d\n",player.nombre,player.espada);
 }
-if (player.armadura==1) {
+if (player.armadura>=1) {
   SetConsoleTextAttribute(hConsole, 4);
-  printf("$s tiene la armadura\n",player.nombre);
+  printf("%s tiene la armadura nivel %d\n",player.nombre,player.armadura);
 }
 if (player.vidas==0) {
   juegofin=2;
@@ -457,10 +464,16 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 7);printf("Una Puerta\n");
   SetConsoleTextAttribute(hConsole, 4);
   printf("D ");
-  SetConsoleTextAttribute(hConsole, 7);printf("Un dragon, invencible excepto si tienes lo necesario\n");
+  SetConsoleTextAttribute(hConsole, 7);printf("Un dragon, dificil de vencer sin las herramientas necesarias\n");
   SetConsoleTextAttribute(hConsole, 14);
   printf("E ");
   SetConsoleTextAttribute(hConsole, 7);printf("Escaleras\n");
+  SetConsoleTextAttribute(hConsole, 10);
+  printf("G ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Un Golem, tendras que mejorar tus herramientas antes de vencer a este enemigo\n");
+  SetConsoleTextAttribute(hConsole, 4);
+  printf("X ");
+  SetConsoleTextAttribute(hConsole, 7);printf("Una trampa, tendras que esquivarla\n");
   //tiempo de espera de la primera corrida del programa
   if(init!=0){sleep(5);}
   printf("\nPresiona cualquier tecla para continuar...");

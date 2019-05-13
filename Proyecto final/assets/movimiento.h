@@ -166,6 +166,7 @@ void movecheck(int dir){
       actcol=deltacol;
       actrow=deltarow;
       player.llave = 1;
+      player.score=player.score+10;
       printmap();
       break;
     //oso
@@ -196,6 +197,7 @@ void movecheck(int dir){
               actcol=deltacol;
               actrow=deltarow;
               player.espada = 1;
+              player.score=player.score+100;
               PlaySound("ESPADA1", NULL, SND_ASYNC | SND_RESOURCE);
               printmap();
               break;
@@ -241,6 +243,7 @@ void movecheck(int dir){
         actcol=deltacol;
         actrow=deltarow;
         player.armadura = 1;
+        player.score=player.score+100;
         PlaySound("ARMADURA1", NULL, SND_ASYNC | SND_RESOURCE);
         printmap();
         break;

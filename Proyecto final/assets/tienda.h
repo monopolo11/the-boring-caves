@@ -33,15 +33,21 @@ void tienda(){
     tiendaent=getch();
     switch (tiendaent) {
       case 49:
+      if (player.espada<3) {
         player.espada++;
         player.monedas=player.monedas-costoespada;
         costoespada=costoespada+90;
+        player.score=player.score+(player.espada*100);
         break;
+      }else{printf("Tu espada ya esta al nivel maximo\n");}
+
       case 50:
-        player.armadura++;
-        player.monedas=player.monedas-costoarmadura;
-        costoarmadura=costoarmadura+90;
-        break;
+        if (player.armadura<3) {
+          player.armadura++;
+          player.monedas=player.monedas-costoarmadura;
+          costoarmadura=costoarmadura+90;
+          player.score=player.score+(player.armadura*100);
+          break;}else{printf("Tu armadura ya esta al nivel maximo\n");}
       case 51:
         player.antorcha++;
         player.monedas=player.monedas-costoantorchas;

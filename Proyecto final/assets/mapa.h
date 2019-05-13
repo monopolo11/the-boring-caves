@@ -388,6 +388,9 @@ if(nivel!=5){
   if(cueva==1){
     SetConsoleTextAttribute(hConsole, 7);
     printf("\nCueva Nivel: %d \n",nivel);}
+  if(nivel==2){
+    SetConsoleTextAttribute(hConsole, 7);
+    printf("\Nivel: %d (No olvides encontrar tu armadura) \n",nivel);}
   else{
     SetConsoleTextAttribute(hConsole, 7);
     printf("\nNivel: %d \n",nivel);}

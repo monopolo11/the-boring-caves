@@ -138,7 +138,7 @@ int main() {
     switch (juegofin) {
       case 1:
         system("cls");
-        printf("Has terminado el nivel");
+        printf("Has terminado el juego");
         printf("\nPresiona cualquier tecla para continuar.");
         registerscore();
         getch();
@@ -146,7 +146,6 @@ int main() {
       case 2:
         system("cls");
         printf("Perdistes HDP");
-        printf("%d\n",player.vidas );
         PlaySound("GAMEOVER", NULL, SND_ASYNC | SND_RESOURCE);
         printf("\nPresiona cualquier tecla para continuar.");
         registerscore();

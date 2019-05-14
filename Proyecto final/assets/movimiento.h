@@ -265,6 +265,12 @@ void movecheck(int dir){
         printmap();
         llavetemp = 0;
         break;
+      case 34:
+        if(init==0){mapasave();}
+        nivel--;
+        cambiomapa();
+        printmap();
+        break;
       //salida secreta
       case 24:
         juegofin=1;

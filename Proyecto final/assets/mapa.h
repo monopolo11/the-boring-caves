@@ -330,6 +330,10 @@ void printmapchar(int valormat){
           SetConsoleTextAttribute(hConsole, 2);
           printf("* ");
           break;
+      case 34:
+          SetConsoleTextAttribute(hConsole, 6);
+          printf("H ");
+          break;
       case 66:
           SetConsoleTextAttribute(hConsole, 4);
           printf("X ");

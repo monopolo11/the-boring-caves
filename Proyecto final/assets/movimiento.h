@@ -213,7 +213,7 @@ void movecheck(int dir){
           }if(player.llave==0){
             matriz[actrow][actcol]=2;
             printmap();
-            printf("Te falta la player.llave.\n");
+            printf("Te falta la llave.\n");
             break;
           }
       //dragon

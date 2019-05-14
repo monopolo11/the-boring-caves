@@ -84,6 +84,22 @@ void mapasave(){
             }
           }
           break;
+        case 4:
+          mapa4[32][0]=actrow;
+          mapa4[32][1]=actcol;
+          mapa4[actrow][actcol]=2;
+          for (row=0; row!=32; row++) {
+              for (col=0; col!=32; col++) {
+                mapa4[row][col]=matriz[row][col];
+              }
+            }
+            //guarda matris de visibilidad
+            for (row=0; row!=32; row++) {
+                for (col=0; col!=32; col++) {
+                  mapa4_vis[row][col]=matrizvis[row][col];
+                }
+              }
+              break;
   }
 }else{
   //si es cueva

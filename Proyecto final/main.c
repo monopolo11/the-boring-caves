@@ -48,12 +48,12 @@ int main() {
   player.vidas = 3;
   player.antorcha = 5;
   player.estado='O';
-  mapa2[32][0]=1;
+  mapa2[32][0]=2;
   mapa2[32][1]=17;
-  mapa3[32][0]=1;
+  mapa3[32][0]=2;
   mapa3[32][1]=18;
   mapa4[32][0]=22;
-  mapa4[32][1]=1;
+  mapa4[32][1]=2;
   mapa5[32][0]=6;
   mapa5[32][1]=12;
   printf("Introduce tu nombre de usuario: \n");

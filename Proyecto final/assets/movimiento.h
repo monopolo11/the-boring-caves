@@ -206,8 +206,8 @@ void movecheck(int dir){
           if (player.llave==1) {
             PlaySound("PUERTA", NULL, SND_ASYNC | SND_RESOURCE);
             matriz[actrow][actcol]=0;
-            nivel=nivel+1;
             mapasave();
+            nivel=nivel+1;
             cambiomapa();
             printmap();
             break;

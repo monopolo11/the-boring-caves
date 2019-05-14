@@ -125,6 +125,7 @@ int main() {
           player.monedas=10000;
           break;
         case 109:
+        mapasave();
           nivel++;
           cambiomapa();
           player.monedas=player.monedas+500;

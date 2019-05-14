@@ -295,7 +295,7 @@ void printmapchar(int valormat){
           printf("F ");
           break;
       case 7:
-             SetConsoleTextAttribute(hConsole, 4);
+             SetConsoleTextAttribute(hConsole, 9);
               printf("+ ");
               break;
       case 9:
@@ -315,7 +315,7 @@ void printmapchar(int valormat){
           printf("D ");
           break;
       case 13:
-          SetConsoleTextAttribute(hConsole, 4);
+          SetConsoleTextAttribute(hConsole, 9);
           printf("A ");
           break;
       case 21:
@@ -411,11 +411,11 @@ if (player.llave==1) {
   printf("%s tiene la llave\n",player.nombre);
 }
 if (player.espada>=1) {
-  SetConsoleTextAttribute(hConsole, 4);
+  SetConsoleTextAttribute(hConsole, 9);
   printf("%s tiene la espada nivel %d\n",player.nombre,player.espada);
 }
 if (player.armadura>=1) {
-  SetConsoleTextAttribute(hConsole, 4);
+  SetConsoleTextAttribute(hConsole, 9);
   printf("%s tiene la armadura nivel %d\n",player.nombre,player.armadura);
 }
 if (player.vidas==0) {
@@ -438,6 +438,10 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 2);
   printf("R\n");
   SetConsoleTextAttribute(hConsole, 7);
+  printf("Para acceder a la tienda presiona ");
+  SetConsoleTextAttribute(hConsole, 2);
+  printf("T\n");
+  SetConsoleTextAttribute(hConsole, 7);
   printf("Si en cualquier momento deseas volver a ver esta pantalla presiona ");
   SetConsoleTextAttribute(hConsole, 2);
   printf("I\n");
@@ -456,10 +460,10 @@ void printinicio(){
   SetConsoleTextAttribute(hConsole, 4);
   printf("F ");
   SetConsoleTextAttribute(hConsole, 7);printf("Un enemigo\n");
-  SetConsoleTextAttribute(hConsole, 4);
+  SetConsoleTextAttribute(hConsole, 9);
   printf("+ ");
   SetConsoleTextAttribute(hConsole, 7);printf("Una espada, la necesitaras para pasar por los enemigos\n");
-  SetConsoleTextAttribute(hConsole, 4);
+  SetConsoleTextAttribute(hConsole, 9);
   printf("A ");
   SetConsoleTextAttribute(hConsole, 7);printf("Una armadura, la necesitaras para pasar por los enemigos\n");
   SetConsoleTextAttribute(hConsole, 6);

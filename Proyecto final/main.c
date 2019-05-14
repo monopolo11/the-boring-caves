@@ -118,7 +118,7 @@ int main() {
         printmap();
             break;
         //se presiona u
-        case 117:
+        case 116:
           tienda();
           break;
         case 110:

@@ -167,9 +167,11 @@ void cambiomapa(){
               matrizvis[row][col]=mapa1_vis[row][col];
             }
           }
+          if(mapa1[32][2]==1)player.llave=1;
           startvis();
         break;
     case 2:
+    mapa1[32][2]=1;
     for (row=0; row!=32; row++) {
         for (col=0; col!=32; col++) {
           matriz[row][col]=mapa2[row][col];
@@ -185,9 +187,11 @@ void cambiomapa(){
             matrizvis[row][col]=0;
           }
         }
+        if(mapa2[32][2]==1)player.llave=1;
         startvis();
         break;
       case 3:
+      mapa2[32][2]=1;
       for (row=0; row!=32; row++) {
           for (col=0; col!=32; col++) {
             matriz[row][col]=mapa3[row][col];
@@ -203,9 +207,11 @@ void cambiomapa(){
               matrizvis[row][col]=0;
             }
           }
+          if(mapa3[32][2]==1)player.llave=1;
           startvis();
           break;
         case 4:
+        mapa3[32][2]=1;
           for (row=0; row!=32; row++) {
               for (col=0; col!=32; col++) {
                 matriz[row][col]=mapa4[row][col];
@@ -221,6 +227,7 @@ void cambiomapa(){
                   matrizvis[row][col]=0;
                 }
               }
+              if(mapa4[32][2]==1)player.llave=1;
               startvis();
               break;
           case 5:

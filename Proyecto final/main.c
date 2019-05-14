@@ -19,6 +19,7 @@ typedef struct Jugador1 {
    int monedas;
    int monedastotal;
    int score;
+   int mapasjugados;
    char nombre[100];
 } Jugador1;
 //declaraciond e variables delta
@@ -48,12 +49,16 @@ int main() {
   player.vidas = 3;
   player.antorcha = 5;
   player.estado='O';
+  player.mapasjugados=0;
   mapa2[32][0]=2;
   mapa2[32][1]=17;
+  mapa2[32][2]=0;
   mapa3[32][0]=2;
   mapa3[32][1]=18;
+  mapa3[32][2]=0;
   mapa4[32][0]=22;
   mapa4[32][1]=2;
+  mapa4[32][2]=0;
   mapa5[32][0]=6;
   mapa5[32][1]=12;
   printf("Introduce tu nombre de usuario: \n");

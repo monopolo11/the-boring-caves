@@ -300,9 +300,9 @@ void printmapchar(int valormat){
           printf("F ");
           break;
       case 7:
-             SetConsoleTextAttribute(hConsole, 9);
-              printf("+ ");
-              break;
+          SetConsoleTextAttribute(hConsole, 9);
+          printf("+ ");
+          break;
       case 9:
        SetConsoleTextAttribute(hConsole, 6);
           printf("H ");
@@ -312,9 +312,9 @@ void printmapchar(int valormat){
           printf("- ");
           break;
       case 11:
-        SetConsoleTextAttribute(hConsole, 3);
-        printf("| ");
-        break;
+          SetConsoleTextAttribute(hConsole, 3);
+          printf("| ");
+          break;
       case 12:
           SetConsoleTextAttribute(hConsole, 4);
           printf("D ");

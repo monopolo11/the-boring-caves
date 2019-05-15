@@ -3,7 +3,6 @@ char name[100]="name=";
 char score[100]="&score=";
 char gamestate[100]="&gamestate=";
 char gamestate2[100];
-char uname[100];
 char score2[30];
 
 void registerscore(){

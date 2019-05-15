@@ -33,7 +33,6 @@ Jugador1 player;
 #include <stdio.h>
 #include <strings.h>
 #include <stdlib.h>
-#include <mmsystem.h>
 #include "assets/mapas.h"
 #include "assets/mapa.h"
 #include "assets/movimiento.h"

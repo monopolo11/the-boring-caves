@@ -33,7 +33,6 @@ Jugador1 player;
 #include <stdio.h>
 #include <strings.h>
 #include <stdlib.h>
-#include <mmsystem.h>
 #include "assets/mapas.h"
 #include "assets/mapa.h"
 #include "assets/movimiento.h"
@@ -78,7 +77,6 @@ int main() {
   printinicio();
   init = 0;
     char ch = 0;
-    int cont = 0;
     //ciclo del juego
     while (juegofin==0) {
       ch = getch();
@@ -86,22 +84,18 @@ int main() {
         //se presiona w
         case 119:
           moverArr();
-          cont++;
           break;
         //se presiona s
         case 115:
           moverAba();
-          cont++;
           break;
         //se presiona a
         case 97:
           moverIzq();
-          cont++;
           break;
         //se presiona d
         case 100:
             moverDer();
-            cont++;
             break;
         //se presiona q
         case 113:
@@ -147,15 +141,12 @@ int main() {
         printf("Has terminado el juego");
         printf("\nPresiona cualquier tecla para continuar.");
         registerscore();
-        getch();
         break;
       case 2:
         system("cls");
-        printf("Perdistes HDP");
         PlaySound("GAMEOVER", NULL, SND_ASYNC | SND_RESOURCE);
-        printf("\nPresiona cualquier tecla para continuar.");
         registerscore();
-        getch();
+        sleep(5);
         break;
       case 3:
         system("cls");

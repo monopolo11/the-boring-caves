@@ -147,15 +147,12 @@ int main() {
         printf("Has terminado el juego");
         printf("\nPresiona cualquier tecla para continuar.");
         registerscore();
-        getch();
         break;
       case 2:
         system("cls");
-        printf("Perdistes HDP");
         PlaySound("GAMEOVER", NULL, SND_ASYNC | SND_RESOURCE);
-        printf("\nPresiona cualquier tecla para continuar.");
         registerscore();
-        getch();
+        sleep(5);
         break;
       case 3:
         system("cls");

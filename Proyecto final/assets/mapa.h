@@ -120,24 +120,6 @@ void mapasave(){
           }
         }
         break;
-    case 2:
-    mapa1_1[32][0]=actrow;
-    mapa1_1[32][1]=actcol;
-    for (row=0; row!=32; row++) {
-        for (col=0; col!=32; col++) {
-          mapa1_1[row][col]=matriz[row][col];
-        }
-      }
-      //guarda matris de visibilidad
-      for (row=0; row!=32; row++) {
-          for (col=0; col!=32; col++) {
-            mapa1_1_vis[row][col]=matrizvis[row][col];
-          }
-        }
-        break;
-      case 3:
-        juegofin=1;
-        break;
   }
 }
 }

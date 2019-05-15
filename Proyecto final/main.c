@@ -78,7 +78,6 @@ int main() {
   printinicio();
   init = 0;
     char ch = 0;
-    int cont = 0;
     //ciclo del juego
     while (juegofin==0) {
       ch = getch();
@@ -86,22 +85,18 @@ int main() {
         //se presiona w
         case 119:
           moverArr();
-          cont++;
           break;
         //se presiona s
         case 115:
           moverAba();
-          cont++;
           break;
         //se presiona a
         case 97:
           moverIzq();
-          cont++;
           break;
         //se presiona d
         case 100:
             moverDer();
-            cont++;
             break;
         //se presiona q
         case 113:

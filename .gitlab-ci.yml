@@ -12,9 +12,9 @@ build:
   #   - apt update && apt -y install make autoconf 
   script: 
     - mkdir .build
-    - x86_64-w64-mingw32-gcc -c  Proyecto\ final/main.c -o main.o 
+    - x86_64-w64-mingw32-gcc -c  main.c -o main.o 
     - cp main.o .build
-    - x86_64-w64-mingw32-windres -i Proyecto\ final/sounds.rc -o sounds.res -O coff
+    - x86_64-w64-mingw32-windres -i sounds.rc -o sounds.res -O coff
     - cp sounds.res .build
     - cd .build
     - x86_64-w64-mingw32-gcc main.o sounds.res -o The_Boring_Caves.exe -lwinmm 
